@@ -1,59 +1,1577 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VERDE DECOR</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6ef;
-            color: #26382b;
-            text-align: center;
-        }
+  <title>VERDE DECOR | Süni Yaşıllıq və Dekorasiya</title>
 
-        .box {
-            padding: 100px 20px;
-        }
+  <meta
+    name="description"
+    content="Süni ağaclar, dekorativ güllər, yaşıl divarlar və interyer dekorasiyası."
+  >
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        p {
-            font-size: 20px;
-            color: #687568;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        button {
-            margin-top: 25px;
-            padding: 14px 25px;
-            border: none;
-            border-radius: 30px;
-            background: #315c42;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7f1;
+      color: #203126;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e9e1;
+    }
+
+    .nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #315c42;
+    }
+
+    .logo span {
+      color: #91a86f;
+    }
+
+    .nav-link {
+      background: #315c42;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          rgba(25, 45, 33, 0.58),
+          rgba(25, 45, 33, 0.58)
+        ),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      color: white;
+      padding: 90px 0;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.3);
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 18px;
+      color: #edf3ed;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 35px;
+      font-weight: 800;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #dce9bd;
+      color: #294a35;
+    }
+
+    .btn-secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* INFO */
+
+    .info {
+      margin-top: -45px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(30,48,38,0.12);
+    }
+
+    .info-item {
+      padding: 25px;
+      text-align: center;
+      border-right: 1px solid #e9ece7;
+    }
+
+    .info-item:last-child {
+      border-right: none;
+    }
+
+    .info-icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .info-item span {
+      color: #788178;
+      font-size: 13px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      max-width: 680px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #7b9761;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: #717b73;
+    }
+
+    /* PRODUCTS */
+
+    .categories {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category {
+      white-space: nowrap;
+      border: 1px solid #dfe5dc;
+      background: white;
+      color: #405047;
+      padding: 10px 17px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .category.active {
+      background: #315c42;
+      color: white;
+      border-color: #315c42;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #e7ebe4;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(31,42,36,0.10);
+    }
+
+    .product-image {
+      height: 245px;
+      object-fit: cover;
+    }
+
+    .product-body {
+      padding: 18px;
+    }
+
+    .product-tag {
+      color: #819967;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 900;
+    }
+
+    .product h3 {
+      font-size: 19px;
+      margin: 5px 0;
+    }
+
+    .product p {
+      color: #7a837c;
+      font-size: 13px;
+      min-height: 42px;
+      margin-bottom: 15px;
+    }
+
+    .product-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      background: #edf3e7;
+      color: #315c42;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .product-btn:hover {
+      background: #dfead6;
+    }
+
+    /* PROJECTS */
+
+    .projects-section {
+      background: white;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-auto-rows: 240px;
+      gap: 15px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .project:first-child {
+      grid-row: span 2;
+    }
+
+    .project img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .project:hover img {
+      transform: scale(1.06);
+    }
+
+    .project-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px;
+      color: white;
+      background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.78)
+      );
+    }
+
+    .project-overlay small {
+      opacity: 0.8;
+    }
+
+    .project-overlay h3 {
+      margin-top: 3px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #263b2e;
+      color: white;
+    }
+
+    .services .section-title p {
+      color: #bbc8bf;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 28px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+    }
+
+    .service-icon {
+      font-size: 34px;
+      margin-bottom: 17px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: #bdc9c0;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 500px;
+      object-fit: cover;
+      border-radius: 25px;
+    }
+
+    .about-text h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #69736c;
+      margin-bottom: 18px;
+    }
+
+    .checks {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .checks li {
+      margin-bottom: 11px;
+      font-weight: 700;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      padding: 55px;
+      background: #dfe9d2;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(30px, 5vw, 46px);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: #59665b;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      padding: 14px 22px;
+      border-radius: 30px;
+      background: #315c42;
+      color: white;
+      font-weight: 800;
+    }
+
+    .contact-btn.light {
+      background: white;
+      color: #315c42;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 45px 0 100px;
+      background: #1e2c23;
+      color: #c5cec8;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .footer-small {
+      color: #8e9b92;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    /* MOBILE CTA */
+
+    .mobile-cta {
+      display: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project:first-child {
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        height: 62px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav-link {
+        padding: 9px 13px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero h1 {
+        font-size: 49px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        border-right: none;
+        border-bottom: 1px solid #e9ece7;
+      }
+
+      .info-item:last-child {
+        border-bottom: none;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .product-image {
+        height: 180px;
+      }
+
+      .product-body {
+        padding: 14px;
+      }
+
+      .product h3 {
+        font-size: 16px;
+      }
+
+      .product p {
+        font-size: 12px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 270px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 360px;
+      }
+
+      .contact-box {
+        padding: 35px 20px;
+      }
+
+      .mobile-cta {
+        display: block;
+        position: fixed;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        z-index: 2000;
+      }
+
+      .mobile-cta a {
+        display: block;
+        padding: 15px;
+        border-radius: 40px;
+        background: #315c42;
+        color: white;
+        text-align: center;
+        font-weight: 900;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="box">
-        <h1>🌿 VERDE DECOR</h1>
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="#" class="logo">
+        VERDE <span>DECOR</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="https://wa.me/994501234567?text=Salam%2C%20süni%20yaşıllıq%20haqqında%20məlumat%20almaq%20istəyirəm."
+      >
+        WhatsApp
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="hero-label">
+          🌿 Süni yaşıllıq • Dekorasiya • Quraşdırma
+        </div>
+
+        <h1>
+          Məkanınıza<br>
+          yaşıl toxunuş.
+        </h1>
 
         <p>
-            Süni yaşıllıq və interyer dekorasiyası
+          Süni ağaclar, dekorativ güllər, yaşıl divarlar
+          və interyer üçün xüsusi yaşıllaşdırma həlləri.
         </p>
 
-        <button>
+        <div class="buttons">
+
+          <a href="#products" class="btn btn-primary">
             Məhsullara bax
-        </button>
+          </a>
+
+          <a
+            href="https://wa.me/994501234567?text=Salam%2C%20məkanım%20üçün%20süni%20yaşıllıq%20haqqında%20qiymət%20almaq%20istəyirəm."
+            class="btn btn-secondary"
+          >
+            Qiymət soruş
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </section>
+
+
+  <!-- INFO -->
+
+  <div class="info">
+
+    <div class="container">
+
+      <div class="info-grid">
+
+        <div class="info-item">
+
+          <div class="info-icon">📐</div>
+
+          <strong>Ölçüyə uyğun</strong>
+
+          <span>
+            Məkanınıza uyğun həllər
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <div class="info-icon">🚚</div>
+
+          <strong>Çatdırılma</strong>
+
+          <span>
+            Ünvana çatdırılma imkanı
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <div class="info-icon">🛠️</div>
+
+          <strong>Quraşdırma</strong>
+
+          <span>
+            Montaj xidməti
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          Kolleksiya
+        </div>
+
+        <h2>
+          Məhsullarımız
+        </h2>
+
+        <p>
+          Ev, ofis, mağaza, restoran və digər məkanlar üçün
+          dekorativ süni yaşıllıq məhsulları.
+        </p>
+
+      </div>
+
+
+      <div class="categories">
+
+        <button
+          class="category active"
+          onclick="filterProducts('all', this)"
+        >
+          Hamısı
+        </button>
+
+        <button
+          class="category"
+          onclick="filterProducts('tree', this)"
+        >
+          🌳 Süni ağaclar
+        </button>
+
+        <button
+          class="category"
+          onclick="filterProducts('flower', this)"
+        >
+          🌸 Güllər
+        </button>
+
+        <button
+          class="category"
+          onclick="filterProducts('wall', this)"
+        >
+          🌿 Yaşıl divar
+        </button>
+
+        <button
+          class="category"
+          onclick="filterProducts('pot', this)"
+        >
+          🪴 Dibçək
+        </button>
+
+      </div>
+
+
+      <div class="products">
+
+
+        <div class="product" data-category="tree">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80"
+            alt="Süni zeytun ağacı"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Süni ağac
+            </div>
+
+            <h3>
+              Zeytun ağacı
+            </h3>
+
+            <p>
+              Minimal və premium interyerlər üçün dekorativ ağac.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Zeytun ağacı')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="tree">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1597055181300-b9b5e5c5f3e1?auto=format&fit=crop&w=800&q=80"
+            alt="Dekorativ palma"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Süni ağac
+            </div>
+
+            <h3>
+              Dekorativ palma
+            </h3>
+
+            <p>
+              Böyük məkanlar üçün hündür və diqqətçəkən model.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Dekorativ palma')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="flower">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80"
+            alt="Dekorativ çiçəklər"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Dekorativ gül
+            </div>
+
+            <h3>
+              Çiçək kompozisiyası
+            </h3>
+
+            <p>
+              Masa, resepsiyon və vitrinlər üçün dekor.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Çiçək kompozisiyası')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="wall">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=800&q=80"
+            alt="Yaşıl divar"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Yaşıl divar
+            </div>
+
+            <h3>
+              Dekorativ yaşıl divar
+            </h3>
+
+            <p>
+              Ofis, restoran, mağaza və evlər üçün divar dekoru.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Dekorativ yaşıl divar')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="pot">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80"
+            alt="Dekorativ dibçək"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Dibçək
+            </div>
+
+            <h3>
+              Dekorativ dibçək
+            </h3>
+
+            <p>
+              Müxtəlif ölçü və üslubda interyer bitkiləri.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Dekorativ dibçək')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="flower">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1526397751294-331021109fbd?auto=format&fit=crop&w=800&q=80"
+            alt="Yarpaq kompozisiyası"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Dekor
+            </div>
+
+            <h3>
+              Yarpaq kompozisiyası
+            </h3>
+
+            <p>
+              Minimalist interyerlər üçün dekorativ seçim.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Yarpaq kompozisiyası')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="wall">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=800&q=80"
+            alt="Yaşıl dekor paneli"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              Panel
+            </div>
+
+            <h3>
+              Yaşıl dekor paneli
+            </h3>
+
+            <p>
+              Divar və vitrinlər üçün modul yaşıl panel.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Yaşıl dekor paneli')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="product" data-category="pot">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80"
+            alt="Premium interyer bitkisi"
+          >
+
+          <div class="product-body">
+
+            <div class="product-tag">
+              İnteryer
+            </div>
+
+            <h3>
+              Premium bitki
+            </h3>
+
+            <p>
+              Ofis və kommersiya məkanları üçün dekorativ seçim.
+            </p>
+
+            <button
+              class="product-btn"
+              onclick="askProduct('Premium interyer bitkisi')"
+            >
+              Məlumat al →
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+
+  <section class="projects-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          Portfolio
+        </div>
+
+        <h2>
+          Nümunə layihələr
+        </h2>
+
+        <p>
+          Müxtəlif məkanlarda tətbiq oluna biləcək
+          yaşıllaşdırma və dekorasiya nümunələri.
+        </p>
+
+      </div>
+
+
+      <div class="projects">
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+            alt="Ofis yaşıllaşdırılması"
+          >
+
+          <div class="project-overlay">
+
+            <small>
+              Ofis
+            </small>
+
+            <h3>
+              Yaşıl ofis konsepti
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85"
+            alt="Mağaza dekorasiyası"
+          >
+
+          <div class="project-overlay">
+
+            <small>
+              Mağaza
+            </small>
+
+            <h3>
+              Vitrin dekorasiyası
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85"
+            alt="Restoran dekorasiyası"
+          >
+
+          <div class="project-overlay">
+
+            <small>
+              Kommersiya
+            </small>
+
+            <h3>
+              Yaşıl restoran konsepti
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
+            alt="Ev dekorasiyası"
+          >
+
+          <div class="project-overlay">
+
+            <small>
+              Ev
+            </small>
+
+            <h3>
+              Ev interyerində yaşıllıq
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
+            alt="Biznes məkanı"
+          >
+
+          <div class="project-overlay">
+
+            <small>
+              Biznes
+            </small>
+
+            <h3>
+              Premium interyer
+            </h3>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section class="services">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          Xidmətlər
+        </div>
+
+        <h2>
+          Sadəcə məhsul satmırıq.
+        </h2>
+
+        <p>
+          Məhsul seçimindən quraşdırmaya qədər
+          tam həll təqdim etmək mümkündür.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+        <div class="service">
+
+          <div class="service-icon">
+            🎨
+          </div>
+
+          <h3>
+            Dizayn
+          </h3>
+
+          <p>
+            Məkanın ölçüsünə və üslubuna uyğun
+            yaşıllaşdırma ideyası.
+          </p>
+
+        </div>
+
+
+        <div class="service">
+
+          <div class="service-icon">
+            🌿
+          </div>
+
+          <h3>
+            Məhsul seçimi
+          </h3>
+
+          <p>
+            Ağac, gül, yaşıl divar və
+            dekor elementləri.
+          </p>
+
+        </div>
+
+
+        <div class="service">
+
+          <div class="service-icon">
+            🚚
+          </div>
+
+          <h3>
+            Çatdırılma
+          </h3>
+
+          <p>
+            Sifarişlərin ünvana çatdırılması
+            üçün xidmət.
+          </p>
+
+        </div>
+
+
+        <div class="service">
+
+          <div class="service-icon">
+            🛠️
+          </div>
+
+          <h3>
+            Quraşdırma
+          </h3>
+
+          <p>
+            Yaşıl divar və digər dekorların
+            quraşdırılması.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="about">
+
+        <img
+          class="about-image"
+          src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=85"
+          alt="Yaşıl interyer"
+        >
+
+        <div class="about-text">
+
+          <div class="eyebrow">
+            VERDE DECOR
+          </div>
+
+          <h2>
+            Təbii görünüş.<br>
+            Minimum qulluq.
+          </h2>
+
+          <p>
+            Süni yaşıllıq interyerə canlı və premium
+            görünüş qazandırmaq üçün praktik həllərdən biridir.
+          </p>
+
+          <p>
+            Evdən ofisə, mağazadan restorana qədər
+            müxtəlif məkanlara uyğun məhsul və dekorasiya
+            konseptləri hazırlamaq mümkündür.
+          </p>
+
+          <ul class="checks">
+
+            <li>✓ Suvarma tələb etmir</li>
+
+            <li>✓ İl boyu yaşıl görünüş</li>
+
+            <li>✓ Müxtəlif ölçü və modellər</li>
+
+            <li>✓ Fərdi layihələrə uyğunlaşdırma</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="eyebrow">
+          Əlaqə
+        </div>
+
+        <h2>
+          Məkanınızı yaşıllaşdıraq 🌿
+        </h2>
+
+        <p>
+          Məkanınızın şəklini və təxmini ölçüsünü göndərin.
+          Uyğun məhsullar barədə məlumat alın.
+        </p>
+
+        <div class="contact-buttons">
+
+          <a
+            class="contact-btn"
+            href="https://wa.me/994501234567?text=Salam%2C%20məkanım%20üçün%20süni%20yaşıllıq%20haqqında%20məlumat%20almaq%20istəyirəm."
+          >
+            WhatsApp-a yaz
+          </a>
+
+          <a
+            class="contact-btn light"
+            href="https://www.google.com/maps/search/?api=1&query=Baku%2C%20Azerbaijan"
+            target="_blank"
+          >
+            📍 Ünvan
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer">
+
+      <div>
+
+        <div class="footer-logo">
+          VERDE DECOR
+        </div>
+
+        <div class="footer-small">
+          Süni yaşıllıq və interyer dekorasiyası
+        </div>
+
+      </div>
+
+      <div class="footer-small">
+        © 2026 VERDE DECOR
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- MOBILE WHATSAPP -->
+
+  <div class="mobile-cta">
+
+    <a
+      href="https://wa.me/994501234567?text=Salam%2C%20süni%20yaşıllıq%20haqqında%20məlumat%20almaq%20istəyirəm."
+    >
+      💬 WhatsApp ilə məlumat al
+    </a>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function askProduct(product) {
+
+      const message =
+        "Salam, " +
+        product +
+        " məhsulu haqqında məlumat və qiymət almaq istəyirəm.";
+
+      const url =
+        "https://wa.me/994501234567?text=" +
+        encodeURIComponent(message);
+
+      window.open(url, "_blank");
+    }
+
+
+    function filterProducts(category, button) {
+
+      const products =
+        document.querySelectorAll(".product");
+
+      const buttons =
+        document.querySelectorAll(".category");
+
+      buttons.forEach(function(item) {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      products.forEach(function(product) {
+
+        if (
+          category === "all" ||
+          product.dataset.category === category
+        ) {
+
+          product.style.display = "";
+
+        } else {
+
+          product.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+  </script>
 
 </body>
 </html>
