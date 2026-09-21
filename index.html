@@ -105,7 +105,7 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top:80px;
+    scroll-padding-top:90px;
 }
 
 body{
@@ -114,6 +114,10 @@ body{
     color:#24352b;
     line-height:1.6;
     overflow-x:hidden;
+}
+
+body.menu-open{
+    overflow:hidden;
 }
 
 img{
@@ -132,17 +136,21 @@ a{
     -webkit-tap-highlight-color:transparent;
 }
 
+/* ==================================================
+   HEADER / NAVIGATION
+================================================== */
+
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(255,255,255,.96);
+    background:rgba(255,255,255,.97);
     border-bottom:1px solid #e5e1d7;
-    padding:15px 6%;
+    padding:12px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:15px;
+    gap:20px;
     backdrop-filter:blur(10px);
 }
 
@@ -152,7 +160,88 @@ header{
     letter-spacing:2px;
     color:#315b3d;
     white-space:nowrap;
+    position:relative;
+    z-index:1002;
 }
+
+.main-nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:5px;
+}
+
+.main-nav a{
+    text-decoration:none;
+    color:#315b3d;
+    font-size:14px;
+    font-weight:700;
+    padding:9px 11px;
+    border-radius:10px;
+    transition:.2s;
+    white-space:nowrap;
+}
+
+.main-nav a:hover{
+    background:#eef3eb;
+}
+
+.main-nav .nav-whatsapp{
+    background:#315b3d;
+    color:white;
+    padding:10px 16px;
+    border-radius:25px;
+    margin-left:4px;
+}
+
+.main-nav .nav-whatsapp:hover{
+    background:#264a31;
+}
+
+.menu-toggle{
+    display:none;
+    width:44px;
+    height:44px;
+    border:none;
+    background:#eef3eb;
+    border-radius:12px;
+    cursor:pointer;
+    padding:9px;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    position:relative;
+    z-index:1002;
+}
+
+.menu-toggle span{
+    width:22px;
+    height:2px;
+    background:#315b3d;
+    border-radius:5px;
+    transition:.2s;
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+.nav-overlay{
+    display:none;
+}
+
+/* ==================================================
+   WHATSAPP
+================================================== */
 
 .whatsapp{
     text-decoration:none;
@@ -171,6 +260,10 @@ header{
 .whatsapp:hover{
     background:#264a31;
 }
+
+/* ==================================================
+   HERO
+================================================== */
 
 .hero{
     min-height:570px;
@@ -248,6 +341,10 @@ header{
     background:#f1f4ef;
 }
 
+/* ==================================================
+   INFO
+================================================== */
+
 .info{
     padding:35px 7%;
     display:grid;
@@ -270,6 +367,10 @@ section{
     padding:75px 7%;
 }
 
+section[id]{
+    scroll-margin-top:90px;
+}
+
 .section-title{
     text-align:center;
     margin-bottom:40px;
@@ -283,6 +384,10 @@ section{
 .section-title p{
     color:#68736b;
 }
+
+/* ==================================================
+   PRODUCTS
+================================================== */
 
 .product-search{
     max-width:500px;
@@ -449,6 +554,10 @@ section{
     margin-top:5px;
 }
 
+/* ==================================================
+   PRODUCT MODAL
+================================================== */
+
 .product-modal{
     position:fixed;
     inset:0;
@@ -590,6 +699,11 @@ section{
     background:#f5f7f3;
     cursor:pointer;
     box-shadow:0 8px 25px rgba(0,0,0,.06);
+    outline:none;
+}
+
+.portfolio-item:focus-visible{
+    box-shadow:0 0 0 4px rgba(49,91,61,.3);
 }
 
 .portfolio-item img{
@@ -654,7 +768,9 @@ section{
     font-size:13px;
 }
 
-/* Portfolio modal */
+/* ==================================================
+   PORTFOLIO MODAL
+================================================== */
 
 .portfolio-modal{
     position:fixed;
@@ -924,7 +1040,20 @@ footer{
     display:none;
 }
 
+/* ==================================================
+   TABLET
+================================================== */
+
 @media(max-width:1100px){
+
+    .main-nav{
+        gap:2px;
+    }
+
+    .main-nav a{
+        padding:8px 8px;
+        font-size:13px;
+    }
 
     .products{
         grid-template-columns:repeat(3,1fr);
@@ -937,6 +1066,18 @@ footer{
 
 @media(max-width:950px){
 
+    .main-nav{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    header{
+        padding:10px 5%;
+    }
+
     .products{
         grid-template-columns:repeat(2,1fr);
     }
@@ -944,7 +1085,53 @@ footer{
     .portfolio-grid{
         grid-template-columns:repeat(2,1fr);
     }
+
+    .nav-overlay{
+        position:fixed;
+        inset:0;
+        z-index:999;
+        background:rgba(20,35,25,.42);
+        backdrop-filter:blur(2px);
+    }
+
+    .nav-overlay.active{
+        display:block;
+    }
+
+    .main-nav.mobile-open{
+        display:flex;
+        position:absolute;
+        top:calc(100% + 1px);
+        left:0;
+        right:0;
+        z-index:1001;
+        background:white;
+        border-bottom:1px solid #e5e1d7;
+        box-shadow:0 15px 30px rgba(0,0,0,.10);
+        padding:12px 5% 18px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+    }
+
+    .main-nav.mobile-open a{
+        display:flex;
+        align-items:center;
+        min-height:46px;
+        padding:11px 13px;
+        border-radius:12px;
+        font-size:15px;
+    }
+
+    .main-nav.mobile-open .nav-whatsapp{
+        justify-content:center;
+        margin:7px 0 0;
+    }
 }
+
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media(max-width:650px){
 
@@ -953,7 +1140,7 @@ footer{
     }
 
     header{
-        padding:12px 5%;
+        padding:10px 5%;
     }
 
     .logo{
@@ -961,10 +1148,9 @@ footer{
         letter-spacing:1.5px;
     }
 
-    .whatsapp{
-        padding:9px 13px;
-        font-size:13px;
-        min-height:42px;
+    .menu-toggle{
+        width:44px;
+        height:44px;
     }
 
     .hero{
@@ -998,13 +1184,54 @@ footer{
         padding:55px 6%;
     }
 
+    .section-title{
+        margin-bottom:30px;
+    }
+
     .section-title h2{
         font-size:32px;
+    }
+
+    .section-title p{
+        font-size:14px;
+    }
+
+    .product-search{
+        margin-bottom:14px;
+    }
+
+    .product-search input{
+        min-height:52px;
+        font-size:16px;
+    }
+
+    .categories{
+        justify-content:flex-start;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding:2px 2px 8px;
+        margin-bottom:25px;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+
+    .categories::-webkit-scrollbar{
+        display:none;
+    }
+
+    .category{
+        flex:0 0 auto;
+        min-height:44px;
+        padding:10px 15px;
     }
 
     .products{
         grid-template-columns:1fr;
         gap:18px;
+    }
+
+    .product{
+        border-radius:20px;
     }
 
     .product img{
@@ -1014,6 +1241,19 @@ footer{
 
     .product-body{
         padding:18px;
+    }
+
+    .product-body h3{
+        font-size:19px;
+    }
+
+    .product-body p{
+        font-size:14px;
+    }
+
+    .detail-btn,
+    .quote-btn{
+        min-height:48px;
     }
 
     .portfolio-grid{
@@ -1026,6 +1266,12 @@ footer{
 
     .portfolio-item img{
         height:270px;
+    }
+
+    .portfolio-label{
+        left:12px;
+        right:12px;
+        bottom:12px;
     }
 
     .portfolio-modal{
@@ -1066,6 +1312,10 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .service{
+        padding:23px;
+    }
+
     .form-grid{
         grid-template-columns:1fr;
     }
@@ -1076,6 +1326,12 @@ footer{
 
     .quote-box{
         padding:24px 18px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+        font-size:16px;
     }
 
     .contact h2{
@@ -1168,17 +1424,67 @@ footer{
         VERDE DECOR
     </div>
 
-    <a
-        class="whatsapp"
-        href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-        target="_blank"
-        rel="noopener noreferrer">
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Menyu"
+        aria-expanded="false"
+        aria-controls="mainNav">
 
-        WhatsApp
+        <span></span>
+        <span></span>
+        <span></span>
 
-    </a>
+    </button>
+
+    <nav
+        class="main-nav"
+        id="mainNav"
+        aria-label="Əsas menyu">
+
+        <a href="#products">
+            Məhsullar
+        </a>
+
+        <a href="#portfolio">
+            Nümunələr
+        </a>
+
+        <a href="#services">
+            Xidmətlər
+        </a>
+
+        <a href="#about">
+            Haqqımızda
+        </a>
+
+        <a href="#quote">
+            Qiymət
+        </a>
+
+        <a href="#contact">
+            Əlaqə
+        </a>
+
+        <a
+            class="nav-whatsapp"
+            href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+            target="_blank"
+            rel="noopener noreferrer">
+
+            💬 WhatsApp
+
+        </a>
+
+    </nav>
 
 </header>
+
+<div
+    class="nav-overlay"
+    id="navOverlay">
+</div>
 
 <section class="hero">
 
@@ -1291,6 +1597,7 @@ footer{
 
         <button
             class="category active"
+            type="button"
             onclick="filterProducts('all',this)">
 
             Hamısı
@@ -1299,6 +1606,7 @@ footer{
 
         <button
             class="category"
+            type="button"
             onclick="filterProducts('tree',this)">
 
             Süni ağaclar
@@ -1307,6 +1615,7 @@ footer{
 
         <button
             class="category"
+            type="button"
             onclick="filterProducts('flower',this)">
 
             Güllər
@@ -1315,6 +1624,7 @@ footer{
 
         <button
             class="category"
+            type="button"
             onclick="filterProducts('wall',this)">
 
             Yaşıl divar
@@ -1323,6 +1633,7 @@ footer{
 
         <button
             class="category"
+            type="button"
             onclick="filterProducts('pot',this)">
 
             Dibçək
@@ -1420,11 +1731,9 @@ footer{
 
 </div>
 
-<!-- ==================================================
-     PORTFOLIO
-================================================== -->
-
-<section class="portfolio">
+<section
+    class="portfolio"
+    id="portfolio">
 
     <div class="section-title">
 
@@ -1449,8 +1758,6 @@ footer{
     </div>
 
 </section>
-
-<!-- PORTFOLIO MODAL -->
 
 <div
     class="portfolio-modal"
@@ -1527,7 +1834,7 @@ footer{
 
 </div>
 
-<section>
+<section id="services">
 
     <div class="section-title">
 
@@ -1611,7 +1918,9 @@ footer{
 
 </section>
 
-<section class="about">
+<section
+    class="about"
+    id="about">
 
     <div class="about-inner">
 
@@ -1770,7 +2079,9 @@ footer{
 
 </section>
 
-<section class="contact">
+<section
+    class="contact"
+    id="contact">
 
     <div class="contact-box">
 
@@ -1853,6 +2164,154 @@ let allPortfolio = [];
 let selectedPortfolioIndex = 0;
 
 /* ==================================================
+   MOBILE MENU
+================================================== */
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+const mainNav =
+    document.getElementById(
+        "mainNav"
+    );
+
+const navOverlay =
+    document.getElementById(
+        "navOverlay"
+    );
+
+function openMenu(){
+
+    if(!menuToggle || !mainNav){
+        return;
+    }
+
+    menuToggle.classList.add(
+        "active"
+    );
+
+    mainNav.classList.add(
+        "mobile-open"
+    );
+
+    if(navOverlay){
+        navOverlay.classList.add(
+            "active"
+        );
+    }
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    document.body.classList.add(
+        "menu-open"
+    );
+}
+
+function closeMenu(){
+
+    if(!menuToggle || !mainNav){
+        return;
+    }
+
+    menuToggle.classList.remove(
+        "active"
+    );
+
+    mainNav.classList.remove(
+        "mobile-open"
+    );
+
+    if(navOverlay){
+        navOverlay.classList.remove(
+            "active"
+        );
+    }
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+}
+
+function toggleMenu(){
+
+    if(
+        mainNav &&
+        mainNav.classList.contains(
+            "mobile-open"
+        )
+    ){
+        closeMenu();
+    }
+    else{
+        openMenu();
+    }
+}
+
+if(menuToggle){
+
+    menuToggle.addEventListener(
+        "click",
+        toggleMenu
+    );
+
+}
+
+if(navOverlay){
+
+    navOverlay.addEventListener(
+        "click",
+        closeMenu
+    );
+
+}
+
+if(mainNav){
+
+    mainNav
+        .querySelectorAll(
+            "a"
+        )
+        .forEach(
+            function(link){
+
+                link.addEventListener(
+                    "click",
+                    function(){
+
+                        closeMenu();
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(
+            window.innerWidth > 950
+        ){
+            closeMenu();
+        }
+
+    }
+);
+
+/* ==================================================
    BRAND
 ================================================== */
 
@@ -1870,7 +2329,9 @@ function setupBrand(){
         title;
 
     const logo =
-        document.querySelector(".logo");
+        document.querySelector(
+            ".logo"
+        );
 
     if(logo){
         logo.textContent =
@@ -2336,10 +2797,14 @@ function filterProducts(
         "active"
     );
 
-    searchProducts();
+    searchProducts(
+        category
+    );
 }
 
-function searchProducts(){
+function searchProducts(
+    forcedCategory
+){
 
     const input =
         document.getElementById(
@@ -2351,28 +2816,36 @@ function searchProducts(){
         ? input.value.trim().toLowerCase()
         : "";
 
-    const activeCategory =
-        document.querySelector(
-            ".category.active"
-        );
+    let category =
+        forcedCategory ||
+        "all";
 
-    let category = "all";
+    if(!forcedCategory){
 
-    if(activeCategory){
-
-        const onclick =
-            activeCategory.getAttribute(
-                "onclick"
+        const activeCategory =
+            document.querySelector(
+                ".category.active"
             );
 
-        const match =
-            onclick
-            ? onclick.match(/'([^']+)'/)
-            : null;
+        if(activeCategory){
 
-        if(match){
-            category = match[1];
+            const onclick =
+                activeCategory.getAttribute(
+                    "onclick"
+                );
+
+            const match =
+                onclick
+                ? onclick.match(/'([^']+)'/)
+                : null;
+
+            if(match){
+                category =
+                    match[1];
+            }
+
         }
+
     }
 
     const products =
@@ -2446,7 +2919,6 @@ function searchProducts(){
     }
 
     if(
-        search &&
         visibleCount === 0
     ){
 
@@ -2461,11 +2933,21 @@ function searchProducts(){
         message.className =
             "empty-products";
 
-        message.innerHTML =
-            "🔎 <strong>\"" +
-            escapeHtml(search) +
-            "\"</strong> adlı məhsul tapılmadı.<br>" +
-            "<small>Başqa məhsul adı ilə axtarın.</small>";
+        if(search){
+
+            message.innerHTML =
+                "🔎 <strong>\"" +
+                escapeHtml(search) +
+                "\"</strong> adlı məhsul tapılmadı.<br>" +
+                "<small>Başqa məhsul adı ilə axtarın.</small>";
+
+        }
+        else{
+
+            message.innerHTML =
+                "🌿 Bu kateqoriyada hələ məhsul yoxdur.";
+
+        }
 
         container.appendChild(
             message
@@ -2999,14 +3481,21 @@ document.addEventListener(
         ){
 
             if(
+                mainNav &&
+                mainNav.classList.contains(
+                    "mobile-open"
+                )
+            ){
+                closeMenu();
+            }
+
+            if(
                 productModal &&
                 productModal.classList.contains(
                     "active"
                 )
             ){
-
                 closeProductModal();
-
             }
 
             if(
@@ -3015,9 +3504,7 @@ document.addEventListener(
                     "active"
                 )
             ){
-
                 closePortfolioModal();
-
             }
 
         }
@@ -3111,4 +3598,4 @@ loadPortfolio();
 </script>
 
 </body>
-</html> 
+</html>
