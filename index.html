@@ -60,18 +60,37 @@ header{
     white-space:nowrap;
 }
 
-.whatsapp{
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.whatsapp,
+.call-btn{
     text-decoration:none;
-    background:#315b3d;
     color:white;
-    padding:10px 18px;
+    padding:10px 17px;
     border-radius:25px;
     font-weight:700;
     transition:.2s;
+    white-space:nowrap;
+}
+
+.whatsapp{
+    background:#315b3d;
 }
 
 .whatsapp:hover{
     background:#264a31;
+}
+
+.call-btn{
+    background:#6b7d68;
+}
+
+.call-btn:hover{
+    background:#586956;
 }
 
 .hero{
@@ -634,7 +653,7 @@ section{
 }
 
 .contact-box{
-    max-width:700px;
+    max-width:800px;
     margin:auto;
 }
 
@@ -645,7 +664,28 @@ section{
 
 .contact p{
     color:#68736b;
+    margin-bottom:15px;
+}
+
+.contact-address{
+    display:inline-block;
     margin-bottom:25px;
+    padding:10px 16px;
+    background:#eef3eb;
+    color:#315b3d;
+    border-radius:20px;
+    font-weight:700;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.mobile-actions{
+    display:none;
 }
 
 footer{
@@ -653,10 +693,6 @@ footer{
     color:#dbe4dc;
     padding:30px 7%;
     text-align:center;
-}
-
-.mobile-whatsapp{
-    display:none;
 }
 
 @media(max-width:1100px){
@@ -691,9 +727,14 @@ footer{
         font-size:18px;
     }
 
-    .whatsapp{
-        padding:9px 13px;
-        font-size:13px;
+    .header-actions{
+        gap:6px;
+    }
+
+    .whatsapp,
+    .call-btn{
+        padding:8px 11px;
+        font-size:12px;
     }
 
     .hero{
@@ -796,21 +837,34 @@ footer{
         min-width:0;
     }
 
-    .mobile-whatsapp{
-        display:block;
+    .mobile-actions{
+        display:flex;
         position:fixed;
         bottom:15px;
         left:15px;
         right:15px;
         z-index:9999;
-        background:#315b3d;
+        gap:8px;
+    }
+
+    .mobile-action{
+        flex:1;
         color:white;
         text-align:center;
-        padding:14px;
+        padding:13px 8px;
         border-radius:30px;
         text-decoration:none;
         font-weight:800;
         box-shadow:0 8px 25px rgba(0,0,0,.25);
+        font-size:14px;
+    }
+
+    .mobile-action.whatsapp-mobile{
+        background:#315b3d;
+    }
+
+    .mobile-action.call-mobile{
+        background:#6b7d68;
     }
 }
 </style>
@@ -824,14 +878,26 @@ footer{
         VERDE DECOR
     </div>
 
-    <a
-        class="whatsapp"
-        href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-        target="_blank">
+    <div class="header-actions">
 
-        WhatsApp
+        <a
+            class="call-btn"
+            href="tel:+994501234567">
 
-    </a>
+            📞 Zəng et
+
+        </a>
+
+        <a
+            class="whatsapp"
+            href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+            target="_blank">
+
+            WhatsApp
+
+        </a>
+
+    </div>
 
 </header>
 
@@ -1419,12 +1485,14 @@ footer{
         </h2>
 
         <p>
-            Layihəniz barədə danışmaq üçün WhatsApp vasitəsilə əlaqə saxlayın.
+            Layihəniz barədə danışmaq və ünvanımıza baxmaq üçün bizimlə əlaqə saxlayın.
         </p>
 
-        <div
-            class="buttons"
-            style="justify-content:center;">
+        <div class="contact-address">
+            📍 Əhməd Rəcəbli küçəsi, Bakı
+        </div>
+
+        <div class="contact-buttons">
 
             <a
                 class="btn btn-primary"
@@ -1437,7 +1505,15 @@ footer{
 
             <a
                 class="btn btn-secondary"
-                href="https://maps.google.com/?q=Baku,Azerbaijan"
+                href="tel:+994501234567">
+
+                📞 Zəng et
+
+            </a>
+
+            <a
+                class="btn btn-secondary"
+                href="https://maps.google.com/?q=Ahmad+Rajabli+Street,Baku,Azerbaijan"
                 target="_blank">
 
                 📍 Xəritədə bax
@@ -1454,14 +1530,26 @@ footer{
     © 2026 VERDE DECOR — Demo website
 </footer>
 
-<a
-    class="mobile-whatsapp"
-    href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-    target="_blank">
+<div class="mobile-actions">
 
-    💬 WhatsApp-a yaz
+    <a
+        class="mobile-action call-mobile"
+        href="tel:+994501234567">
 
-</a>
+        📞 Zəng et
+
+    </a>
+
+    <a
+        class="mobile-action whatsapp-mobile"
+        href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+        target="_blank">
+
+        💬 WhatsApp
+
+    </a>
+
+</div>
 
 <script>
 
@@ -1697,7 +1785,8 @@ function renderProducts(products){
                         src="${escapeHtml(image)}"
                         alt="${name}"
                         loading="lazy"
-                        decoding="async">
+                        decoding="async"
+                        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80';">
 
                     <div class="product-body">
 
@@ -1884,8 +1973,8 @@ function searchProducts(){
     }
 
     if(
-        search &&
-        visibleCount === 0
+        visibleCount === 0 &&
+        allProducts.length > 0
     ){
 
         const message =
@@ -1899,11 +1988,21 @@ function searchProducts(){
         message.className =
             "empty-products";
 
-        message.innerHTML =
-            "🔎 <strong>\"" +
-            escapeHtml(search) +
-            "\"</strong> adlı məhsul tapılmadı.<br>" +
-            "<small>Başqa məhsul adı ilə axtarın.</small>";
+        if(search){
+
+            message.innerHTML =
+                "🔎 <strong>\"" +
+                escapeHtml(search) +
+                "\"</strong> adlı məhsul tapılmadı.<br>" +
+                "<small>Başqa məhsul adı ilə axtarın.</small>";
+
+        }
+        else{
+
+            message.innerHTML =
+                "Bu kateqoriyada hələ məhsul yoxdur.";
+
+        }
 
         container.appendChild(
             message
