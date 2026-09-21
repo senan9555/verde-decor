@@ -209,18 +209,50 @@ section{
 .product-body p{
     color:#68736b;
     font-size:14px;
+    margin-bottom:12px;
+}
+
+.product-price{
+    font-size:20px;
+    font-weight:800;
+    color:#315b3d;
     margin-bottom:15px;
 }
 
+.product-actions{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.detail-btn,
 .quote-btn{
     width:100%;
     border:none;
-    background:#315b3d;
-    color:white;
     padding:12px;
     border-radius:12px;
     cursor:pointer;
     font-weight:700;
+    font-size:14px;
+}
+
+.detail-btn{
+    background:#eef3eb;
+    color:#315b3d;
+    border:1px solid #d5dfd3;
+}
+
+.detail-btn:hover{
+    background:#e1ebdf;
+}
+
+.quote-btn{
+    background:#315b3d;
+    color:white;
+}
+
+.quote-btn:hover{
+    background:#264a31;
 }
 
 .empty-products{
@@ -237,6 +269,125 @@ section{
     text-align:center;
     padding:40px;
     color:#68736b;
+}
+
+/* ================================
+   MƏHSUL DETALLARI MODALI
+================================ */
+
+.product-modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(20,35,25,.72);
+    backdrop-filter:blur(5px);
+}
+
+.product-modal.active{
+    display:flex;
+}
+
+.product-modal-box{
+    position:relative;
+    width:min(900px,100%);
+    max-height:92vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:26px;
+    box-shadow:0 25px 80px rgba(0,0,0,.3);
+}
+
+.product-modal-image{
+    width:100%;
+    height:360px;
+    object-fit:cover;
+    display:block;
+}
+
+.product-modal-content{
+    padding:30px;
+}
+
+.product-modal-content h2{
+    font-size:32px;
+    margin-bottom:8px;
+    color:#24352b;
+}
+
+.product-modal-category{
+    display:inline-block;
+    background:#e9f0e7;
+    color:#315b3d;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.product-modal-price{
+    font-size:24px;
+    font-weight:800;
+    color:#315b3d;
+    margin-bottom:15px;
+}
+
+.product-modal-description{
+    color:#68736b;
+    margin-bottom:25px;
+    white-space:pre-line;
+}
+
+.product-modal-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.modal-whatsapp{
+    flex:1;
+    min-width:200px;
+    border:none;
+    background:#315b3d;
+    color:white;
+    padding:14px 18px;
+    border-radius:13px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.modal-close{
+    flex:1;
+    min-width:150px;
+    border:1px solid #d7ddd6;
+    background:#f7f5ef;
+    color:#315b3d;
+    padding:14px 18px;
+    border-radius:13px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.modal-x{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.94);
+    color:#24352b;
+    font-size:24px;
+    cursor:pointer;
+    z-index:2;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .portfolio{
@@ -429,6 +580,7 @@ footer{
 }
 
 @media(max-width:950px){
+
     .products{
         grid-template-columns:repeat(2,1fr);
     }
@@ -443,6 +595,7 @@ footer{
 }
 
 @media(max-width:650px){
+
     header{
         padding:13px 5%;
     }
@@ -506,6 +659,37 @@ footer{
         font-size:32px;
     }
 
+    .product-modal{
+        padding:10px;
+    }
+
+    .product-modal-box{
+        border-radius:20px;
+        max-height:94vh;
+    }
+
+    .product-modal-image{
+        height:250px;
+    }
+
+    .product-modal-content{
+        padding:22px;
+    }
+
+    .product-modal-content h2{
+        font-size:25px;
+    }
+
+    .product-modal-actions{
+        flex-direction:column;
+    }
+
+    .modal-whatsapp,
+    .modal-close{
+        width:100%;
+        min-width:0;
+    }
+
     .mobile-whatsapp{
         display:block;
         position:fixed;
@@ -529,23 +713,34 @@ footer{
 <body>
 
 <header>
-    <div class="logo">VERDE DECOR</div>
 
-    <a class="whatsapp"
-       href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-       target="_blank">
+    <div class="logo">
+        VERDE DECOR
+    </div>
+
+    <a
+        class="whatsapp"
+        href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+        target="_blank">
+
         WhatsApp
+
     </a>
+
 </header>
 
+
 <section class="hero">
+
     <div class="hero-content">
 
         <div class="badge">
             🌿 Süni yaşıllıq • Dekorasiya • Quraşdırma
         </div>
 
-        <h1>Məkanınıza yaşıl toxunuş.</h1>
+        <h1>
+            Məkanınıza yaşıl toxunuş.
+        </h1>
 
         <p>
             Ev, ofis, mağaza və restoranlar üçün
@@ -554,161 +749,436 @@ footer{
         </p>
 
         <div class="buttons">
-            <a href="#products" class="btn btn-primary">
+
+            <a
+                href="#products"
+                class="btn btn-primary">
+
                 Məhsullara bax
+
             </a>
 
-            <a href="#quote" class="btn btn-secondary">
+            <a
+                href="#quote"
+                class="btn btn-secondary">
+
                 Qiymət soruş
+
             </a>
+
         </div>
 
     </div>
+
 </section>
+
 
 <div class="info">
 
     <div class="info-card">
-        <h3>📐 Ölçüyə uyğun</h3>
-        <p>Məkanınıza və ölçünüzə uyğun dekor seçimləri.</p>
+
+        <h3>
+            📐 Ölçüyə uyğun
+        </h3>
+
+        <p>
+            Məkanınıza və ölçünüzə uyğun dekor seçimləri.
+        </p>
+
     </div>
 
-    <div class="info-card">
-        <h3>🚚 Çatdırılma</h3>
-        <p>Sifarişlərin məkana çatdırılması.</p>
-    </div>
 
     <div class="info-card">
-        <h3>🔧 Quraşdırma</h3>
-        <p>Yaşıl divar və digər dekorların quraşdırılması.</p>
+
+        <h3>
+            🚚 Çatdırılma
+        </h3>
+
+        <p>
+            Sifarişlərin məkana çatdırılması.
+        </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <h3>
+            🔧 Quraşdırma
+        </h3>
+
+        <p>
+            Yaşıl divar və digər dekorların quraşdırılması.
+        </p>
+
     </div>
 
 </div>
 
+
 <section id="products">
 
     <div class="section-title">
-        <h2>Məhsullar</h2>
-        <p>Aktual məhsul kataloqu</p>
+
+        <h2>
+            Məhsullar
+        </h2>
+
+        <p>
+            Aktual məhsul kataloqu
+        </p>
+
     </div>
+
 
     <div class="categories">
 
-        <button class="category active" onclick="filterProducts('all',this)">
+        <button
+            class="category active"
+            onclick="filterProducts('all',this)">
+
             Hamısı
+
         </button>
 
-        <button class="category" onclick="filterProducts('tree',this)">
+
+        <button
+            class="category"
+            onclick="filterProducts('tree',this)">
+
             Süni ağaclar
+
         </button>
 
-        <button class="category" onclick="filterProducts('flower',this)">
+
+        <button
+            class="category"
+            onclick="filterProducts('flower',this)">
+
             Güllər
+
         </button>
 
-        <button class="category" onclick="filterProducts('wall',this)">
+
+        <button
+            class="category"
+            onclick="filterProducts('wall',this)">
+
             Yaşıl divar
+
         </button>
 
-        <button class="category" onclick="filterProducts('pot',this)">
+
+        <button
+            class="category"
+            onclick="filterProducts('pot',this)">
+
             Dibçək
+
         </button>
 
     </div>
 
-    <div class="products" id="productsContainer">
+
+    <div
+        class="products"
+        id="productsContainer">
+
         <div class="loading-products">
             🌿 Məhsullar yüklənir...
         </div>
+
     </div>
 
 </section>
+
+
+<!-- ================================
+     MƏHSUL DETALLARI MODALI
+================================ -->
+
+<div
+    class="product-modal"
+    id="productModal"
+    onclick="closeProductModal(event)">
+
+    <div
+        class="product-modal-box"
+        onclick="event.stopPropagation()">
+
+        <button
+            class="modal-x"
+            type="button"
+            onclick="closeProductModal()">
+
+            ×
+
+        </button>
+
+
+        <img
+            id="modalProductImage"
+            class="product-modal-image"
+            src=""
+            alt="">
+
+
+        <div class="product-modal-content">
+
+            <span
+                id="modalProductCategory"
+                class="product-modal-category">
+            </span>
+
+
+            <h2 id="modalProductName">
+                Məhsul
+            </h2>
+
+
+            <div
+                id="modalProductPrice"
+                class="product-modal-price">
+            </div>
+
+
+            <p
+                id="modalProductDescription"
+                class="product-modal-description">
+            </p>
+
+
+            <div class="product-modal-actions">
+
+                <button
+                    class="modal-whatsapp"
+                    type="button"
+                    onclick="askProductFromModal()">
+
+                    💬 WhatsApp-da soruş
+
+                </button>
+
+
+                <button
+                    class="modal-close"
+                    type="button"
+                    onclick="closeProductModal()">
+
+                    Bağla
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <section class="portfolio">
 
     <div class="section-title">
-        <h2>Nümunə layihələr</h2>
-        <p>Müxtəlif məkanlar üçün dekorasiya ideyaları</p>
+
+        <h2>
+            Nümunə layihələr
+        </h2>
+
+        <p>
+            Müxtəlif məkanlar üçün dekorasiya ideyaları
+        </p>
+
     </div>
+
 
     <div class="portfolio-grid">
 
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80">
-            <div class="portfolio-label">🏢 Ofis</div>
+
+            <img
+                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80"
+                alt="Ofis dekorasiyası"
+                loading="lazy">
+
+            <div class="portfolio-label">
+                🏢 Ofis
+            </div>
+
         </div>
 
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80">
-            <div class="portfolio-label">🛍️ Mağaza</div>
-        </div>
 
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80">
-            <div class="portfolio-label">🍽️ Restoran</div>
+
+            <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80"
+                alt="Mağaza dekorasiyası"
+                loading="lazy">
+
+            <div class="portfolio-label">
+                🛍️ Mağaza
+            </div>
+
         </div>
 
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80">
-            <div class="portfolio-label">🏠 Ev</div>
-        </div>
 
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80">
-            <div class="portfolio-label">💼 Biznes məkanı</div>
+
+            <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
+                alt="Restoran dekorasiyası"
+                loading="lazy">
+
+            <div class="portfolio-label">
+                🍽️ Restoran
+            </div>
+
         </div>
 
+
         <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80">
-            <div class="portfolio-label">🌿 Yaşıl interyer</div>
+
+            <img
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80"
+                alt="Ev dekorasiyası"
+                loading="lazy">
+
+            <div class="portfolio-label">
+                🏠 Ev
+            </div>
+
+        </div>
+
+
+        <div class="portfolio-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
+                alt="Biznes məkanı"
+                loading="lazy">
+
+            <div class="portfolio-label">
+                💼 Biznes məkanı
+            </div>
+
+        </div>
+
+
+        <div class="portfolio-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80"
+                alt="Yaşıl interyer"
+                loading="lazy">
+
+            <div class="portfolio-label">
+                🌿 Yaşıl interyer
+            </div>
+
         </div>
 
     </div>
 
 </section>
+
 
 <section>
 
     <div class="section-title">
-        <h2>Xidmətlər</h2>
-        <p>Layihədən quraşdırmaya qədər</p>
+
+        <h2>
+            Xidmətlər
+        </h2>
+
+        <p>
+            Layihədən quraşdırmaya qədər
+        </p>
+
     </div>
+
 
     <div class="services">
 
         <div class="service">
-            <div class="service-icon">🎨</div>
-            <h3>Dizayn</h3>
-            <p>Məkanın üslubuna uyğun dekor həlli.</p>
+
+            <div class="service-icon">
+                🎨
+            </div>
+
+            <h3>
+                Dizayn
+            </h3>
+
+            <p>
+                Məkanın üslubuna uyğun dekor həlli.
+            </p>
+
         </div>
 
-        <div class="service">
-            <div class="service-icon">🌿</div>
-            <h3>Məhsul seçimi</h3>
-            <p>Ölçüyə və büdcəyə uyğun məhsul seçimi.</p>
-        </div>
 
         <div class="service">
-            <div class="service-icon">🚚</div>
-            <h3>Çatdırılma</h3>
-            <p>Məhsulların məkana çatdırılması.</p>
+
+            <div class="service-icon">
+                🌿
+            </div>
+
+            <h3>
+                Məhsul seçimi
+            </h3>
+
+            <p>
+                Ölçüyə və büdcəyə uyğun məhsul seçimi.
+            </p>
+
         </div>
 
+
         <div class="service">
-            <div class="service-icon">🔧</div>
-            <h3>Quraşdırma</h3>
-            <p>Dekorların peşəkar şəkildə yerləşdirilməsi.</p>
+
+            <div class="service-icon">
+                🚚
+            </div>
+
+            <h3>
+                Çatdırılma
+            </h3>
+
+            <p>
+                Məhsulların məkana çatdırılması.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                🔧
+            </div>
+
+            <h3>
+                Quraşdırma
+            </h3>
+
+            <p>
+                Dekorların peşəkar şəkildə yerləşdirilməsi.
+            </p>
+
         </div>
 
     </div>
 
 </section>
+
 
 <section class="about">
 
     <div class="about-inner">
 
-        <h2>Təbii görünüş. Minimum qulluq.</h2>
+        <h2>
+            Təbii görünüş. Minimum qulluq.
+        </h2>
 
         <p>
             Süni yaşıllıqla məkanınıza ilboyu yaşıl görünüş verin.
@@ -720,82 +1190,144 @@ footer{
 
 </section>
 
-<section class="quote-section" id="quote">
+
+<section
+    class="quote-section"
+    id="quote">
 
     <div class="quote-box">
 
-        <h2>🌿 Qiymət təklifi al</h2>
+        <h2>
+            🌿 Qiymət təklifi al
+        </h2>
 
         <p>
             Məlumatları doldur, WhatsApp-da hazır mesaj açılsın.
         </p>
+
 
         <form onsubmit="sendQuote(event)">
 
             <div class="form-grid">
 
                 <div class="form-group">
-                    <label for="name">Adınız</label>
-                    <input id="name" type="text" placeholder="Məsələn: Elvin">
+
+                    <label for="name">
+                        Adınız
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="Məsələn: Elvin">
+
                 </div>
 
+
                 <div class="form-group">
-                    <label for="space">Məkan</label>
+
+                    <label for="space">
+                        Məkan
+                    </label>
 
                     <select id="space">
-                        <option value="Ev">Ev</option>
-                        <option value="Ofis">Ofis</option>
-                        <option value="Mağaza">Mağaza</option>
-                        <option value="Restoran">Restoran</option>
-                        <option value="Digər">Digər</option>
+
+                        <option value="Ev">
+                            Ev
+                        </option>
+
+                        <option value="Ofis">
+                            Ofis
+                        </option>
+
+                        <option value="Mağaza">
+                            Mağaza
+                        </option>
+
+                        <option value="Restoran">
+                            Restoran
+                        </option>
+
+                        <option value="Digər">
+                            Digər
+                        </option>
+
                     </select>
 
                 </div>
 
+
                 <div class="form-group">
 
-                    <label for="product">İstədiyiniz məhsul</label>
+                    <label for="product">
+                        İstədiyiniz məhsul
+                    </label>
 
                     <select id="product">
-                        <option value="Süni ağac">Süni ağac</option>
-                        <option value="Gül / kompozisiya">Gül / kompozisiya</option>
-                        <option value="Yaşıl divar">Yaşıl divar</option>
-                        <option value="Dibçək">Dibçək</option>
+
+                        <option value="Süni ağac">
+                            Süni ağac
+                        </option>
+
+                        <option value="Gül / kompozisiya">
+                            Gül / kompozisiya
+                        </option>
+
+                        <option value="Yaşıl divar">
+                            Yaşıl divar
+                        </option>
+
+                        <option value="Dibçək">
+                            Dibçək
+                        </option>
+
                         <option value="Bilmirəm, məsləhət istəyirəm">
                             Bilmirəm, məsləhət istəyirəm
                         </option>
+
                     </select>
 
                 </div>
 
+
                 <div class="form-group">
 
-                    <label for="area">Təxmini ölçü</label>
+                    <label for="area">
+                        Təxmini ölçü
+                    </label>
 
                     <input
                         id="area"
                         type="text"
-                        placeholder="Məsələn: 20 m²"
-                    >
+                        placeholder="Məsələn: 20 m²">
 
                 </div>
 
+
                 <div class="form-group full">
 
-                    <label for="notes">Əlavə qeyd</label>
+                    <label for="notes">
+                        Əlavə qeyd
+                    </label>
 
                     <textarea
                         id="notes"
-                        placeholder="Məsələn: Restoranın giriş divarı üçün istəyirəm."
-                    ></textarea>
+                        placeholder="Məsələn: Restoranın giriş divarı üçün istəyirəm.">
+                    </textarea>
 
                 </div>
 
             </div>
 
-            <button class="quote-submit" type="submit">
+
+            <button
+                class="quote-submit"
+                type="submit">
+
                 WhatsApp-da qiymət soruş →
+
             </button>
+
 
             <div class="small-note">
                 📸 Məkanın şəklini WhatsApp açıldıqdan sonra ayrıca göndərə bilərsiniz.
@@ -807,30 +1339,41 @@ footer{
 
 </section>
 
+
 <section class="contact">
 
     <div class="contact-box">
 
-        <h2>Məkanınızı yaşıllaşdıraq 🌿</h2>
+        <h2>
+            Məkanınızı yaşıllaşdıraq 🌿
+        </h2>
 
         <p>
             Layihəniz barədə danışmaq üçün WhatsApp vasitəsilə əlaqə saxlayın.
         </p>
 
-        <div class="buttons" style="justify-content:center;">
+
+        <div
+            class="buttons"
+            style="justify-content:center;">
 
             <a
                 class="btn btn-primary"
                 href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
                 target="_blank">
+
                 WhatsApp-a yaz
+
             </a>
+
 
             <a
                 class="btn btn-secondary"
                 href="https://maps.google.com/?q=Baku,Azerbaijan"
                 target="_blank">
+
                 📍 Xəritədə bax
+
             </a>
 
         </div>
@@ -839,16 +1382,21 @@ footer{
 
 </section>
 
+
 <footer>
     © 2026 VERDE DECOR — Demo website
 </footer>
+
 
 <a
     class="mobile-whatsapp"
     href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
     target="_blank">
+
     💬 WhatsApp-a yaz
+
 </a>
+
 
 <script>
 
@@ -859,17 +1407,16 @@ footer{
 const SUPABASE_URL =
     "https://yxhiqqcninhgwcwgpaen.supabase.co";
 
-/*
-   BURAYA ADMIN PANELİNDƏ İŞLƏTDİYİN
-   EYNİ PUBLISHABLE / ANON KEY-İ QOY.
-*/
-const SUPABASE_KEY =
-   "sb_publishable_BovYZI2LdinlHZMOAylVqg_lMXAa9tQ" ;
 
-const client = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
+const SUPABASE_KEY =
+    "sb_publishable_BovYZI2LdinlHZMOAylVqg_lMXAa9tQ";
+
+
+const client =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
 /* ================================
@@ -877,6 +1424,8 @@ const client = supabase.createClient(
 ================================ */
 
 let allProducts = [];
+
+let selectedProduct = null;
 
 
 function normalizeCategory(category){
@@ -928,6 +1477,31 @@ function normalizeCategory(category){
 }
 
 
+function getCategoryName(category){
+
+    const value =
+        normalizeCategory(category);
+
+    if(value === "tree"){
+        return "🌳 Süni ağac";
+    }
+
+    if(value === "flower"){
+        return "🌸 Gül / kompozisiya";
+    }
+
+    if(value === "wall"){
+        return "🌿 Yaşıl divar";
+    }
+
+    if(value === "pot"){
+        return "🪴 Dibçək";
+    }
+
+    return "🌿 Dekor";
+}
+
+
 function escapeHtml(value){
 
     return String(value || "")
@@ -939,10 +1513,35 @@ function escapeHtml(value){
 }
 
 
+function formatPrice(price){
+
+    if(
+        price === null ||
+        price === undefined ||
+        price === ""
+    ){
+        return "";
+    }
+
+    const number =
+        Number(price);
+
+    if(
+        Number.isNaN(number)
+    ){
+        return escapeHtml(price);
+    }
+
+    return number.toLocaleString("az-AZ") + " AZN";
+}
+
+
 async function loadProducts(){
 
     const container =
-        document.getElementById("productsContainer");
+        document.getElementById(
+            "productsContainer"
+        );
 
     container.innerHTML = `
         <div class="loading-products">
@@ -950,15 +1549,25 @@ async function loadProducts(){
         </div>
     `;
 
+
     const { data, error } =
         await client
             .from("products")
             .select("*")
-            .order("created_at", { ascending:false });
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
+
 
     if(error){
 
-        console.error("Supabase products error:",error);
+        console.error(
+            "Supabase products error:",
+            error
+        );
 
         container.innerHTML = `
             <div class="empty-products">
@@ -969,16 +1578,28 @@ async function loadProducts(){
         return;
     }
 
-    allProducts = data || [];
 
-    renderProducts(allProducts);
+    allProducts =
+        data || [];
+
+
+    renderProducts(
+        allProducts
+    );
 }
 
+
+/* ================================
+   MƏHSUL KARTLARI
+================================ */
 
 function renderProducts(products){
 
     const container =
-        document.getElementById("productsContainer");
+        document.getElementById(
+            "productsContainer"
+        );
+
 
     if(!products.length){
 
@@ -991,11 +1612,16 @@ function renderProducts(products){
         return;
     }
 
+
     container.innerHTML =
-        products.map(function(product){
+        products
+        .map(function(product){
 
             const name =
-                escapeHtml(product.name);
+                escapeHtml(
+                    product.name
+                );
+
 
             const description =
                 escapeHtml(
@@ -1003,18 +1629,29 @@ function renderProducts(products){
                     "Dekorativ məhsul."
                 );
 
+
             const image =
                 product.image_url ||
                 "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80";
 
+
             const category =
-                normalizeCategory(product.category);
+                normalizeCategory(
+                    product.category
+                );
+
+
+            const price =
+                formatPrice(
+                    product.price
+                );
+
 
             return `
                 <div
                     class="product"
                     data-category="${escapeHtml(category)}"
-                >
+                    data-product-id="${escapeHtml(product.id)}">
 
                     <img
                         src="${escapeHtml(image)}"
@@ -1024,58 +1661,301 @@ function renderProducts(products){
 
                     <div class="product-body">
 
-                        <h3>${name}</h3>
+                        <h3>
+                            ${name}
+                        </h3>
 
-                        <p>${description}</p>
+                        <p>
+                            ${description}
+                        </p>
 
-                        <button
-                            class="quote-btn"
-                            onclick="askProduct(${JSON.stringify(product.name || "Məhsul")})"
-                        >
-                            Məlumat al →
-                        </button>
+                        ${
+                            price
+                            ?
+                            `
+                            <div class="product-price">
+                                ${price}
+                            </div>
+                            `
+                            :
+                            ""
+                        }
+
+                        <div class="product-actions">
+
+                            <button
+                                class="detail-btn"
+                                type="button"
+                                onclick="openProductDetails('${escapeHtml(product.id)}')">
+
+                                Ətraflı bax →
+
+                            </button>
+
+
+                            <button
+                                class="quote-btn"
+                                type="button"
+                                onclick="askProduct('${escapeHtml(product.name || "Məhsul")}')">
+
+                                💬 WhatsApp-da soruş
+
+                            </button>
+
+                        </div>
 
                     </div>
 
                 </div>
             `;
 
-        }).join("");
-}
-
-
-function filterProducts(category,button){
-
-    const products =
-        document.querySelectorAll(".product");
-
-    const buttons =
-        document.querySelectorAll(".category");
-
-    buttons.forEach(function(btn){
-        btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    products.forEach(function(product){
-
-        if(
-            category === "all" ||
-            product.dataset.category === category
-        ){
-            product.style.display = "";
-        }
-        else{
-            product.style.display = "none";
-        }
-
-    });
+        })
+        .join("");
 }
 
 
 /* ================================
-   WHATSAPP
+   KATEQORİYA FİLTRİ
+================================ */
+
+function filterProducts(
+    category,
+    button
+){
+
+    const products =
+        document.querySelectorAll(
+            ".product"
+        );
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".category"
+        );
+
+
+    buttons.forEach(
+        function(btn){
+
+            btn.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    products.forEach(
+        function(product){
+
+            if(
+                category === "all" ||
+                product.dataset.category === category
+            ){
+
+                product.style.display = "";
+
+            }
+            else{
+
+                product.style.display = "none";
+
+            }
+
+        }
+    );
+}
+
+
+/* ================================
+   ƏTRAFLI MƏLUMAT MODALI
+================================ */
+
+function openProductDetails(productId){
+
+    const product =
+        allProducts.find(
+            function(item){
+
+                return String(item.id) ===
+                    String(productId);
+
+            }
+        );
+
+
+    if(!product){
+        return;
+    }
+
+
+    selectedProduct =
+        product;
+
+
+    const image =
+        product.image_url ||
+        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80";
+
+
+    const name =
+        product.name ||
+        "Məhsul";
+
+
+    const description =
+        product.description ||
+        "Bu məhsul haqqında əlavə məlumat üçün WhatsApp vasitəsilə bizimlə əlaqə saxlayın.";
+
+
+    const category =
+        getCategoryName(
+            product.category
+        );
+
+
+    const price =
+        formatPrice(
+            product.price
+        );
+
+
+    document.getElementById(
+        "modalProductImage"
+    ).src = image;
+
+
+    document.getElementById(
+        "modalProductImage"
+    ).alt = name;
+
+
+    document.getElementById(
+        "modalProductCategory"
+    ).textContent = category;
+
+
+    document.getElementById(
+        "modalProductName"
+    ).textContent = name;
+
+
+    document.getElementById(
+        "modalProductPrice"
+    ).textContent =
+        price || "Qiymət üçün soruşun";
+
+
+    document.getElementById(
+        "modalProductDescription"
+    ).textContent = description;
+
+
+    document.getElementById(
+        "productModal"
+    ).classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+function closeProductModal(event){
+
+    if(
+        event &&
+        event.target !==
+        document.getElementById("productModal")
+    ){
+        return;
+    }
+
+
+    document.getElementById(
+        "productModal"
+    ).classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+
+    selectedProduct =
+        null;
+}
+
+
+/* ================================
+   MODALDAN WHATSAPP
+================================ */
+
+function askProductFromModal(){
+
+    if(!selectedProduct){
+        return;
+    }
+
+
+    const name =
+        selectedProduct.name ||
+        "Məhsul";
+
+
+    let message =
+        "Salam, VERDE DECOR! 🌿\n\n" +
+
+        "Bu məhsulla maraqlanıram:\n" +
+
+        "🌿 Məhsul: " +
+        name;
+
+
+    if(
+        selectedProduct.price !== null &&
+        selectedProduct.price !== undefined &&
+        selectedProduct.price !== ""
+    ){
+
+        message +=
+            "\n💰 Qiymət: " +
+            formatPrice(
+                selectedProduct.price
+            );
+
+    }
+
+
+    message +=
+        "\n\nQiymət və əlavə məlumat göndərə bilərsiniz?";
+
+
+    const url =
+        "https://wa.me/994501234567?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+}
+
+
+/* ================================
+   KARTDAN WHATSAPP
 ================================ */
 
 function askProduct(product){
@@ -1086,32 +1966,96 @@ function askProduct(product){
         " məhsulu ilə maraqlanıram. " +
         "Qiymət və məlumat göndərə bilərsiniz?";
 
+
     const url =
         "https://wa.me/994501234567?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+            message
+        );
 
-    window.open(url,"_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
 }
 
+
+/* ================================
+   ESC İLƏ MODALI BAĞLA
+================================ */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            const modal =
+                document.getElementById(
+                    "productModal"
+                );
+
+
+            if(
+                modal.classList.contains(
+                    "active"
+                )
+            ){
+
+                closeProductModal();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* ================================
+   QİYMƏT TƏKLİFİ
+================================ */
 
 function sendQuote(event){
 
     event.preventDefault();
 
+
     const name =
-        document.getElementById("name").value.trim();
+        document
+            .getElementById("name")
+            .value
+            .trim();
+
 
     const space =
-        document.getElementById("space").value;
+        document
+            .getElementById("space")
+            .value;
+
 
     const product =
-        document.getElementById("product").value;
+        document
+            .getElementById("product")
+            .value;
+
 
     const area =
-        document.getElementById("area").value.trim();
+        document
+            .getElementById("area")
+            .value
+            .trim();
+
 
     const notes =
-        document.getElementById("notes").value.trim();
+        document
+            .getElementById("notes")
+            .value
+            .trim();
+
 
     const message =
         "Salam, VERDE DECOR! 🌿\n\n" +
@@ -1135,11 +2079,18 @@ function sendQuote(event){
 
         "\n\n📸 Məkanın şəklini də göndərə bilərəm.";
 
+
     const url =
         "https://wa.me/994501234567?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+            message
+        );
 
-    window.open(url,"_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
 }
 
 
@@ -1152,4 +2103,4 @@ loadProducts();
 </script>
 
 </body>
-</html>
+    </html> 
