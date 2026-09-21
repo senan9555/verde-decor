@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="az">
-    https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VERDE DECOR | Süni yaşıllıq və dekorasiya</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 *{
@@ -220,6 +221,22 @@ section{
     border-radius:12px;
     cursor:pointer;
     font-weight:700;
+}
+
+.empty-products{
+    grid-column:1/-1;
+    text-align:center;
+    padding:40px 20px;
+    color:#68736b;
+    background:white;
+    border-radius:20px;
+}
+
+.loading-products{
+    grid-column:1/-1;
+    text-align:center;
+    padding:40px;
+    color:#68736b;
 }
 
 .portfolio{
@@ -572,7 +589,7 @@ footer{
 
     <div class="section-title">
         <h2>Məhsullar</h2>
-        <p>Demo məhsul kataloqu</p>
+        <p>Aktual məhsul kataloqu</p>
     </div>
 
     <div class="categories">
@@ -599,308 +616,88 @@ footer{
 
     </div>
 
-    <div class="products">
-
-        <div class="product" data-category="tree">
-
-            <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Zeytun ağacı</h3>
-
-                <p>
-                    Təbii görünüşlü dekorativ süni ağac.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Zeytun ağacı')">
-                    Məlumat al →
-                </button>
-
-            </div>
+    <div class="products" id="productsContainer">
+        <div class="loading-products">
+            🌿 Məhsullar yüklənir...
         </div>
-
-        <div class="product" data-category="tree">
-
-            <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Dekorativ palma</h3>
-
-                <p>
-                    Ev və kommersiya məkanları üçün.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Dekorativ palma')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
-        <div class="product" data-category="flower">
-
-            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Çiçək kompozisiyası</h3>
-
-                <p>
-                    Masa və interyer üçün dekorativ kompozisiya.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Çiçək kompozisiyası')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
-        <div class="product" data-category="wall">
-
-            <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Dekorativ yaşıl divar</h3>
-
-                <p>
-                    Divarlar üçün yaşıl və modern görünüş.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Dekorativ yaşıl divar')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
-        <div class="product" data-category="pot">
-
-            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Dekorativ dibçək</h3>
-
-                <p>
-                    Müxtəlif ölçü və interyerlər üçün.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Dekorativ dibçək')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
-        <div class="product" data-category="flower">
-
-            <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Yarpaq kompozisiyası</h3>
-
-                <p>
-                    Minimal və modern dekor həlli.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Yarpaq kompozisiyası')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
-        <div class="product" data-category="wall">
-
-            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Yaşıl dekor paneli</h3>
-
-                <p>
-                    Divar və vitrinlər üçün dekorativ panel.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Yaşıl dekor paneli')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
-        <div class="product" data-category="tree">
-
-            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80">
-
-            <div class="product-body">
-
-                <h3>Premium bitki</h3>
-
-                <p>
-                    Premium interyerlər üçün dekorativ seçim.
-                </p>
-
-                <button class="quote-btn"
-                        onclick="askProduct('Premium bitki')">
-                    Məlumat al →
-                </button>
-
-            </div>
-        </div>
-
     </div>
+
 </section>
 
 <section class="portfolio">
 
     <div class="section-title">
-
         <h2>Nümunə layihələr</h2>
-
-        <p>
-            Müxtəlif məkanlar üçün dekorasiya ideyaları
-        </p>
-
+        <p>Müxtəlif məkanlar üçün dekorasiya ideyaları</p>
     </div>
 
     <div class="portfolio-grid">
 
         <div class="portfolio-item">
-
             <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80">
-
-            <div class="portfolio-label">
-                🏢 Ofis
-            </div>
-
+            <div class="portfolio-label">🏢 Ofis</div>
         </div>
 
         <div class="portfolio-item">
-
             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80">
-
-            <div class="portfolio-label">
-                🛍️ Mağaza
-            </div>
-
+            <div class="portfolio-label">🛍️ Mağaza</div>
         </div>
 
         <div class="portfolio-item">
-
             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80">
-
-            <div class="portfolio-label">
-                🍽️ Restoran
-            </div>
-
+            <div class="portfolio-label">🍽️ Restoran</div>
         </div>
 
         <div class="portfolio-item">
-
             <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80">
-
-            <div class="portfolio-label">
-                🏠 Ev
-            </div>
-
+            <div class="portfolio-label">🏠 Ev</div>
         </div>
 
         <div class="portfolio-item">
-
             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80">
-
-            <div class="portfolio-label">
-                💼 Biznes məkanı
-            </div>
-
+            <div class="portfolio-label">💼 Biznes məkanı</div>
         </div>
 
         <div class="portfolio-item">
-
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80">
-
-            <div class="portfolio-label">
-                🌿 Yaşıl interyer
-            </div>
-
+            <div class="portfolio-label">🌿 Yaşıl interyer</div>
         </div>
 
     </div>
+
 </section>
 
 <section>
 
     <div class="section-title">
-
         <h2>Xidmətlər</h2>
-
-        <p>
-            Layihədən quraşdırmaya qədər
-        </p>
-
+        <p>Layihədən quraşdırmaya qədər</p>
     </div>
 
     <div class="services">
 
         <div class="service">
-
             <div class="service-icon">🎨</div>
-
             <h3>Dizayn</h3>
-
-            <p>
-                Məkanın üslubuna uyğun dekor həlli.
-            </p>
-
+            <p>Məkanın üslubuna uyğun dekor həlli.</p>
         </div>
 
         <div class="service">
-
             <div class="service-icon">🌿</div>
-
             <h3>Məhsul seçimi</h3>
-
-            <p>
-                Ölçüyə və büdcəyə uyğun məhsul seçimi.
-            </p>
-
+            <p>Ölçüyə və büdcəyə uyğun məhsul seçimi.</p>
         </div>
 
         <div class="service">
-
             <div class="service-icon">🚚</div>
-
             <h3>Çatdırılma</h3>
-
-            <p>
-                Məhsulların məkana çatdırılması.
-            </p>
-
+            <p>Məhsulların məkana çatdırılması.</p>
         </div>
 
         <div class="service">
-
             <div class="service-icon">🔧</div>
-
             <h3>Quraşdırma</h3>
-
-            <p>
-                Dekorların peşəkar şəkildə yerləşdirilməsi.
-            </p>
-
+            <p>Dekorların peşəkar şəkildə yerləşdirilməsi.</p>
         </div>
 
     </div>
@@ -938,88 +735,42 @@ footer{
             <div class="form-grid">
 
                 <div class="form-group">
-
-                    <label for="name">
-                        Adınız
-                    </label>
-
-                    <input
-                        id="name"
-                        type="text"
-                        placeholder="Məsələn: Elvin"
-                    >
-
+                    <label for="name">Adınız</label>
+                    <input id="name" type="text" placeholder="Məsələn: Elvin">
                 </div>
 
                 <div class="form-group">
-
-                    <label for="space">
-                        Məkan
-                    </label>
+                    <label for="space">Məkan</label>
 
                     <select id="space">
-
-                        <option value="Ev">
-                            Ev
-                        </option>
-
-                        <option value="Ofis">
-                            Ofis
-                        </option>
-
-                        <option value="Mağaza">
-                            Mağaza
-                        </option>
-
-                        <option value="Restoran">
-                            Restoran
-                        </option>
-
-                        <option value="Digər">
-                            Digər
-                        </option>
-
+                        <option value="Ev">Ev</option>
+                        <option value="Ofis">Ofis</option>
+                        <option value="Mağaza">Mağaza</option>
+                        <option value="Restoran">Restoran</option>
+                        <option value="Digər">Digər</option>
                     </select>
 
                 </div>
 
                 <div class="form-group">
 
-                    <label for="product">
-                        İstədiyiniz məhsul
-                    </label>
+                    <label for="product">İstədiyiniz məhsul</label>
 
                     <select id="product">
-
-                        <option value="Süni ağac">
-                            Süni ağac
-                        </option>
-
-                        <option value="Gül / kompozisiya">
-                            Gül / kompozisiya
-                        </option>
-
-                        <option value="Yaşıl divar">
-                            Yaşıl divar
-                        </option>
-
-                        <option value="Dibçək">
-                            Dibçək
-                        </option>
-
+                        <option value="Süni ağac">Süni ağac</option>
+                        <option value="Gül / kompozisiya">Gül / kompozisiya</option>
+                        <option value="Yaşıl divar">Yaşıl divar</option>
+                        <option value="Dibçək">Dibçək</option>
                         <option value="Bilmirəm, məsləhət istəyirəm">
                             Bilmirəm, məsləhət istəyirəm
                         </option>
-
                     </select>
 
                 </div>
 
                 <div class="form-group">
 
-                    <label for="area">
-                        Təxmini ölçü
-                    </label>
+                    <label for="area">Təxmini ölçü</label>
 
                     <input
                         id="area"
@@ -1031,9 +782,7 @@ footer{
 
                 <div class="form-group full">
 
-                    <label for="notes">
-                        Əlavə qeyd
-                    </label>
+                    <label for="notes">Əlavə qeyd</label>
 
                     <textarea
                         id="notes"
@@ -1091,9 +840,7 @@ footer{
 </section>
 
 <footer>
-
     © 2026 VERDE DECOR — Demo website
-
 </footer>
 
 <a
@@ -1105,19 +852,195 @@ footer{
 
 <script>
 
-function askProduct(product){
+/* ================================
+   SUPABASE
+================================ */
 
-    const message =
-        "Salam, VERDE DECOR. " +
-        product +
-        " məhsulu ilə maraqlanıram. " +
-        "Qiymət və məlumat göndərə bilərsiniz?";
+const SUPABASE_URL =
+    "https://yxhiqqcninhgwcwgpaen.supabase.co";
 
-    const url =
-        "https://wa.me/994501234567?text=" +
-        encodeURIComponent(message);
+/*
+   BURAYA ADMIN PANELİNDƏ İŞLƏTDİYİN
+   EYNİ PUBLISHABLE / ANON KEY-İ QOY.
+*/
+const SUPABASE_KEY =
+    "BURAYA_SENIN_PUBLISHABLE_KEY_INI_YAZ";
 
-    window.open(url,"_blank");
+const client = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+/* ================================
+   MƏHSULLAR
+================================ */
+
+let allProducts = [];
+
+
+function normalizeCategory(category){
+
+    if(!category){
+        return "all";
+    }
+
+    const value =
+        String(category)
+        .trim()
+        .toLowerCase();
+
+    if(
+        value === "tree" ||
+        value.includes("ağac") ||
+        value.includes("agac")
+    ){
+        return "tree";
+    }
+
+    if(
+        value === "flower" ||
+        value.includes("gül") ||
+        value.includes("gul") ||
+        value.includes("çiçək") ||
+        value.includes("cicek")
+    ){
+        return "flower";
+    }
+
+    if(
+        value === "wall" ||
+        value.includes("divar") ||
+        value.includes("panel")
+    ){
+        return "wall";
+    }
+
+    if(
+        value === "pot" ||
+        value.includes("dibçək") ||
+        value.includes("dibcek")
+    ){
+        return "pot";
+    }
+
+    return value;
+}
+
+
+function escapeHtml(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+async function loadProducts(){
+
+    const container =
+        document.getElementById("productsContainer");
+
+    container.innerHTML = `
+        <div class="loading-products">
+            🌿 Məhsullar yüklənir...
+        </div>
+    `;
+
+    const { data, error } =
+        await client
+            .from("products")
+            .select("*")
+            .order("created_at", { ascending:false });
+
+    if(error){
+
+        console.error("Supabase products error:",error);
+
+        container.innerHTML = `
+            <div class="empty-products">
+                Məhsulları yükləmək mümkün olmadı.
+            </div>
+        `;
+
+        return;
+    }
+
+    allProducts = data || [];
+
+    renderProducts(allProducts);
+}
+
+
+function renderProducts(products){
+
+    const container =
+        document.getElementById("productsContainer");
+
+    if(!products.length){
+
+        container.innerHTML = `
+            <div class="empty-products">
+                Hələ məhsul yoxdur.
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML =
+        products.map(function(product){
+
+            const name =
+                escapeHtml(product.name);
+
+            const description =
+                escapeHtml(
+                    product.description ||
+                    "Dekorativ məhsul."
+                );
+
+            const image =
+                product.image_url ||
+                "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80";
+
+            const category =
+                normalizeCategory(product.category);
+
+            return `
+                <div
+                    class="product"
+                    data-category="${escapeHtml(category)}"
+                >
+
+                    <img
+                        src="${escapeHtml(image)}"
+                        alt="${name}"
+                        loading="lazy"
+                    >
+
+                    <div class="product-body">
+
+                        <h3>${name}</h3>
+
+                        <p>${description}</p>
+
+                        <button
+                            class="quote-btn"
+                            onclick="askProduct(${JSON.stringify(product.name || "Məhsul")})"
+                        >
+                            Məlumat al →
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
 }
 
 
@@ -1151,6 +1074,26 @@ function filterProducts(category,button){
 }
 
 
+/* ================================
+   WHATSAPP
+================================ */
+
+function askProduct(product){
+
+    const message =
+        "Salam, VERDE DECOR. " +
+        product +
+        " məhsulu ilə maraqlanıram. " +
+        "Qiymət və məlumat göndərə bilərsiniz?";
+
+    const url =
+        "https://wa.me/994501234567?text=" +
+        encodeURIComponent(message);
+
+    window.open(url,"_blank");
+}
+
+
 function sendQuote(event){
 
     event.preventDefault();
@@ -1170,36 +1113,43 @@ function sendQuote(event){
     const notes =
         document.getElementById("notes").value.trim();
 
-    let message =
-        "Salam, VERDE DECOR! 🌿%0A%0A" +
+    const message =
+        "Salam, VERDE DECOR! 🌿\n\n" +
 
-        "Qiymət təklifi almaq istəyirəm.%0A%0A" +
+        "Qiymət təklifi almaq istəyirəm.\n\n" +
 
         "👤 Ad: " +
         (name || "Qeyd edilməyib") +
 
-        "%0A🏠 Məkan: " +
+        "\n🏠 Məkan: " +
         space +
 
-        "%0A🌿 Məhsul: " +
+        "\n🌿 Məhsul: " +
         product +
 
-        "%0A📐 Ölçü: " +
+        "\n📐 Ölçü: " +
         (area || "Qeyd edilməyib") +
 
-        "%0A📝 Qeyd: " +
+        "\n📝 Qeyd: " +
         (notes || "Yoxdur") +
 
-        "%0A%0A📸 Məkanın şəklini də göndərə bilərəm.";
+        "\n\n📸 Məkanın şəklini də göndərə bilərəm.";
 
     const url =
         "https://wa.me/994501234567?text=" +
-        message;
+        encodeURIComponent(message);
 
     window.open(url,"_blank");
 }
 
+
+/* ================================
+   SAYT AÇILANDA MƏHSULLARI GƏTİR
+================================ */
+
+loadProducts();
+
 </script>
 
 </body>
-</html> 
+</html>
