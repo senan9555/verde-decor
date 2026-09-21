@@ -8,10 +8,6 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<!-- =========================
-     SEO
-========================= -->
-
 <title>VERDE DECOR | Süni yaşıllıq və dekorasiya</title>
 
 <meta
@@ -33,10 +29,6 @@
 <meta
     name="keywords"
     content="süni yaşıllıq, süni ağac, süni gül, yaşıl divar, dekorasiya, dibçək, Bakı, ofis dekorasiyası, restoran dekorasiyası, mağaza dekorasiyası">
-
-<!-- =========================
-     Open Graph
-========================= -->
 
 <meta
     property="og:type"
@@ -62,10 +54,6 @@
     property="og:locale"
     content="az_AZ">
 
-<!-- =========================
-     Twitter / X
-========================= -->
-
 <meta
     name="twitter:card"
     content="summary_large_image">
@@ -82,24 +70,12 @@
     name="twitter:image"
     content="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1800&q=85">
 
-<!-- =========================
-     Favicon
-========================= -->
-
 <link
     rel="icon"
     type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23315b3d'/%3E%3Cpath d='M45 12C27 14 16 24 16 39c0 8 5 13 13 13 16 0 24-13 20-40-1 0-3 0-4 0Z' fill='%23d9e9d3'/%3E%3Cpath d='M17 50c7-11 14-19 25-28' stroke='%23315b3d' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
-<!-- =========================
-     Supabase
-========================= -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- =========================
-     Structured Data
-========================= -->
 
 <script type="application/ld+json">
 {
@@ -481,6 +457,8 @@ section{
     border-radius:20px;
 }
 
+/* PRODUCT MODAL */
+
 .product-modal{
     position:fixed;
     inset:0;
@@ -600,6 +578,8 @@ section{
     box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
+/* PORTFOLIO */
+
 .portfolio{
     background:#e9eee6;
 }
@@ -615,23 +595,190 @@ section{
     height:280px;
     border-radius:20px;
     overflow:hidden;
+    background:#f5f7f3;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    cursor:pointer;
+    transition:transform .25s,box-shadow .25s;
+}
+
+.portfolio-item:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 35px rgba(0,0,0,.1);
 }
 
 .portfolio-item img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
+    display:block;
+    background:#f5f7f3;
+    padding:10px;
 }
 
 .portfolio-label{
     position:absolute;
     left:15px;
+    right:15px;
     bottom:15px;
-    background:rgba(0,0,0,.65);
+    background:rgba(0,0,0,.68);
     color:white;
-    padding:8px 13px;
-    border-radius:20px;
+    padding:10px 14px;
+    border-radius:14px;
+    backdrop-filter:blur(5px);
 }
+
+.portfolio-label strong{
+    display:block;
+    font-size:16px;
+}
+
+.portfolio-label span{
+    display:block;
+    font-size:13px;
+    opacity:.9;
+    margin-top:2px;
+}
+
+.loading-portfolio,
+.empty-portfolio{
+    grid-column:1/-1;
+    text-align:center;
+    padding:45px 20px;
+    background:white;
+    border-radius:20px;
+    color:#68736b;
+}
+
+.portfolio-image-error{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:#68736b;
+    text-align:center;
+    padding:20px;
+}
+
+/* PORTFOLIO MODAL */
+
+.portfolio-modal{
+    position:fixed;
+    inset:0;
+    z-index:11000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    background:rgba(10,18,12,.9);
+    backdrop-filter:blur(6px);
+}
+
+.portfolio-modal.active{
+    display:flex;
+}
+
+.portfolio-modal-box{
+    position:relative;
+    width:min(1100px,100%);
+    max-height:95vh;
+    display:flex;
+    flex-direction:column;
+    background:#17231a;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
+}
+
+.portfolio-modal-image-wrap{
+    position:relative;
+    min-height:300px;
+    height:min(70vh,700px);
+    background:#101711;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.portfolio-modal-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:15px 70px;
+    display:block;
+}
+
+.portfolio-modal-info{
+    padding:20px 25px 24px;
+    color:white;
+    background:#17231a;
+}
+
+.portfolio-modal-info h2{
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.portfolio-modal-info p{
+    color:#d5dfd6;
+    white-space:pre-line;
+}
+
+.portfolio-modal-close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    z-index:3;
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.95);
+    color:#24352b;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+.portfolio-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.93);
+    color:#24352b;
+    font-size:27px;
+    cursor:pointer;
+    z-index:3;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+.portfolio-prev{
+    left:15px;
+}
+
+.portfolio-next{
+    right:15px;
+}
+
+.portfolio-counter{
+    position:absolute;
+    left:50%;
+    bottom:15px;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,.6);
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    z-index:3;
+}
+
+/* SERVICES */
 
 .services{
     display:grid;
@@ -888,7 +1035,7 @@ footer{
     }
 
     .portfolio-item{
-        height:250px;
+        height:260px;
     }
 
     .services{
@@ -949,6 +1096,53 @@ footer{
     .modal-close{
         width:100%;
         min-width:0;
+    }
+
+    .portfolio-modal{
+        padding:8px;
+    }
+
+    .portfolio-modal-box{
+        border-radius:18px;
+        max-height:96vh;
+    }
+
+    .portfolio-modal-image-wrap{
+        height:58vh;
+        min-height:280px;
+    }
+
+    .portfolio-modal-image{
+        padding:15px 50px;
+    }
+
+    .portfolio-modal-info{
+        padding:18px;
+    }
+
+    .portfolio-modal-info h2{
+        font-size:22px;
+    }
+
+    .portfolio-nav{
+        width:42px;
+        height:42px;
+        font-size:22px;
+    }
+
+    .portfolio-prev{
+        left:8px;
+    }
+
+    .portfolio-next{
+        right:8px;
+    }
+
+    .portfolio-modal-close{
+        top:8px;
+        right:8px;
+        width:42px;
+        height:42px;
     }
 
     .mobile-whatsapp{
@@ -1249,6 +1443,10 @@ footer{
 
 </div>
 
+<!-- =========================
+     PORTFOLIO
+========================= -->
+
 <section class="portfolio">
 
     <div class="section-title">
@@ -1258,100 +1456,103 @@ footer{
         </h2>
 
         <p>
-            Müxtəlif məkanlar üçün dekorasiya ideyaları
+            Real layihələr və dekorasiya nümunələri
         </p>
 
     </div>
 
-    <div class="portfolio-grid">
+    <div
+        class="portfolio-grid"
+        id="portfolioContainer">
 
-        <div class="portfolio-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80"
-                alt="Ofis dekorasiyası və süni yaşıllıq"
-                loading="lazy"
-                decoding="async">
-
-            <div class="portfolio-label">
-                🏢 Ofis
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80"
-                alt="Mağaza dekorasiyası"
-                loading="lazy"
-                decoding="async">
-
-            <div class="portfolio-label">
-                🛍️ Mağaza
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
-                alt="Restoran dekorasiyası"
-                loading="lazy"
-                decoding="async">
-
-            <div class="portfolio-label">
-                🍽️ Restoran
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80"
-                alt="Ev dekorasiyası"
-                loading="lazy"
-                decoding="async">
-
-            <div class="portfolio-label">
-                🏠 Ev
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
-                alt="Biznes məkanı dekorasiyası"
-                loading="lazy"
-                decoding="async">
-
-            <div class="portfolio-label">
-                💼 Biznes məkanı
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80"
-                alt="Yaşıl interyer dekorasiyası"
-                loading="lazy"
-                decoding="async">
-
-            <div class="portfolio-label">
-                🌿 Yaşıl interyer
-            </div>
-
+        <div class="loading-portfolio">
+            🌿 Nümunələr yüklənir...
         </div>
 
     </div>
 
 </section>
+
+<!-- =========================
+     PORTFOLIO MODAL
+========================= -->
+
+<div
+    class="portfolio-modal"
+    id="portfolioModal"
+    onclick="closePortfolioModal(event)"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Nümunə layihə görüntüsü">
+
+    <div
+        class="portfolio-modal-box"
+        onclick="event.stopPropagation()">
+
+        <button
+            class="portfolio-modal-close"
+            type="button"
+            aria-label="Bağla"
+            onclick="closePortfolioModal()">
+
+            ×
+
+        </button>
+
+        <div class="portfolio-modal-image-wrap">
+
+            <img
+                id="portfolioModalImage"
+                class="portfolio-modal-image"
+                src=""
+                alt="">
+
+            <button
+                id="portfolioPrev"
+                class="portfolio-nav portfolio-prev"
+                type="button"
+                aria-label="Əvvəlki nümunə"
+                onclick="previousPortfolio()">
+
+                ‹
+
+            </button>
+
+            <button
+                id="portfolioNext"
+                class="portfolio-nav portfolio-next"
+                type="button"
+                aria-label="Növbəti nümunə"
+                onclick="nextPortfolio()">
+
+                ›
+
+            </button>
+
+            <div
+                id="portfolioCounter"
+                class="portfolio-counter">
+
+                1 / 1
+
+            </div>
+
+        </div>
+
+        <div class="portfolio-modal-info">
+
+            <h2 id="portfolioModalTitle">
+                Nümunə layihə
+            </h2>
+
+            <p id="portfolioModalDescription">
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 <section>
 
@@ -1655,9 +1856,7 @@ footer{
 <script>
 
 /* ==================================================
-   BRAND
-   Gələcəkdə şirkətin adını dəyişmək lazım olsa,
-   ilk növbədə yalnız bu sətri dəyiş.
+   BRAND / SUPABASE
 ================================================== */
 
 const BRAND_NAME =
@@ -1681,8 +1880,11 @@ const client =
 let allProducts = [];
 let selectedProduct = null;
 
+let allPortfolio = [];
+let selectedPortfolioIndex = 0;
+
 /* ==================================================
-   BRAND / SEO avtomatik yenilənməsi
+   BRAND
 ================================================== */
 
 function setupBrand(){
@@ -1830,7 +2032,7 @@ function setupBrand(){
 setupBrand();
 
 /* ==================================================
-   WhatsApp
+   WHATSAPP
 ================================================== */
 
 function openWhatsApp(message){
@@ -1848,6 +2050,53 @@ function openWhatsApp(message){
         "_blank",
         "noopener,noreferrer"
     );
+}
+
+/* ==================================================
+   SECURITY
+================================================== */
+
+function escapeHtml(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+function formatPrice(price){
+
+    if(
+        price === null ||
+        price === undefined ||
+        price === ""
+    ){
+        return "";
+    }
+
+    const number =
+        Number(price);
+
+    if(Number.isNaN(number)){
+        return escapeHtml(price);
+    }
+
+    return number.toLocaleString(
+        "az-AZ"
+    ) + " AZN";
+}
+
+function getImageUrl(url){
+
+    if(!url){
+
+        return "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80";
+
+    }
+
+    return String(url);
 }
 
 /* ==================================================
@@ -1924,53 +2173,6 @@ function getCategoryName(category){
     }
 
     return "🌿 Dekor";
-}
-
-/* ==================================================
-   SECURITY / FORMATTING
-================================================== */
-
-function escapeHtml(value){
-
-    return String(value || "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-function formatPrice(price){
-
-    if(
-        price === null ||
-        price === undefined ||
-        price === ""
-    ){
-        return "";
-    }
-
-    const number =
-        Number(price);
-
-    if(Number.isNaN(number)){
-        return escapeHtml(price);
-    }
-
-    return number.toLocaleString(
-        "az-AZ"
-    ) + " AZN";
-}
-
-function getImageUrl(url){
-
-    if(!url){
-
-        return "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80";
-
-    }
-
-    return String(url);
 }
 
 /* ==================================================
@@ -2483,30 +2685,426 @@ function askProduct(product){
 }
 
 /* ==================================================
-   ESCAPE
+   PORTFOLIO
+================================================== */
+
+async function loadPortfolio(){
+
+    const container =
+        document.getElementById(
+            "portfolioContainer"
+        );
+
+    container.innerHTML = `
+        <div class="loading-portfolio">
+            🌿 Nümunələr yüklənir...
+        </div>
+    `;
+
+    const { data, error } =
+        await client
+            .from("portfolio")
+            .select("*")
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
+
+    if(error){
+
+        console.error(
+            "Supabase portfolio error:",
+            error
+        );
+
+        container.innerHTML = `
+            <div class="empty-portfolio">
+                Nümunə layihələri yükləmək mümkün olmadı.
+            </div>
+        `;
+
+        return;
+    }
+
+    allPortfolio =
+        data || [];
+
+    renderPortfolio();
+}
+
+function renderPortfolio(){
+
+    const container =
+        document.getElementById(
+            "portfolioContainer"
+        );
+
+    if(!allPortfolio.length){
+
+        container.innerHTML = `
+            <div class="empty-portfolio">
+                🌿 Hələ nümunə layihəsi yoxdur.
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML =
+        allPortfolio
+        .map(function(item,index){
+
+            const title =
+                item.title ||
+                "Nümunə layihə";
+
+            const description =
+                item.description ||
+                "";
+
+            if(!item.image_url){
+
+                return `
+                    <div class="portfolio-item">
+
+                        <div class="portfolio-image-error">
+
+                            <div style="font-size:45px;">
+                                🌿
+                            </div>
+
+                            <strong>
+                                ${escapeHtml(title)}
+                            </strong>
+
+                            <span>
+                                Şəkil yoxdur
+                            </span>
+
+                        </div>
+
+                    </div>
+                `;
+
+            }
+
+            return `
+                <div
+                    class="portfolio-item"
+                    role="button"
+                    tabindex="0"
+                    aria-label="${escapeHtml(title)}"
+                    onclick="openPortfolio(${index})"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPortfolio(${index});}">
+
+                    <img
+                        src="${escapeHtml(item.image_url)}"
+                        alt="${escapeHtml(title)} — ${BRAND_NAME}"
+                        loading="lazy"
+                        decoding="async"
+                        onerror="portfolioImageError(this)">
+
+                    <div class="portfolio-label">
+
+                        <strong>
+                            ${escapeHtml(title)}
+                        </strong>
+
+                        ${
+                            description
+                            ?
+                            `
+                            <span>
+                                ${escapeHtml(description)}
+                            </span>
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+                </div>
+            `;
+
+        })
+        .join("");
+}
+
+function portfolioImageError(image){
+
+    image.onerror = null;
+
+    const parent =
+        image.parentElement;
+
+    if(!parent){
+        return;
+    }
+
+    parent.innerHTML = `
+        <div class="portfolio-image-error">
+
+            <div style="font-size:45px;">
+                🌿
+            </div>
+
+            <strong>
+                Şəkil yüklənmədi
+            </strong>
+
+        </div>
+    `;
+}
+
+function openPortfolio(index){
+
+    if(
+        !allPortfolio.length ||
+        !allPortfolio[index]
+    ){
+        return;
+    }
+
+    selectedPortfolioIndex =
+        index;
+
+    updatePortfolioModal();
+
+    document.getElementById(
+        "portfolioModal"
+    ).classList.add(
+        "active"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+function updatePortfolioModal(){
+
+    const item =
+        allPortfolio[
+            selectedPortfolioIndex
+        ];
+
+    if(!item){
+        return;
+    }
+
+    const image =
+        document.getElementById(
+            "portfolioModalImage"
+        );
+
+    image.src =
+        item.image_url || "";
+
+    image.alt =
+        (item.title || "Nümunə layihə") +
+        " — " +
+        BRAND_NAME;
+
+    image.onerror =
+        function(){
+
+            this.onerror = null;
+
+            this.src =
+                "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=85";
+
+        };
+
+    document.getElementById(
+        "portfolioModalTitle"
+    ).textContent =
+        item.title ||
+        "Nümunə layihə";
+
+    document.getElementById(
+        "portfolioModalDescription"
+    ).textContent =
+        item.description ||
+        "";
+
+    document.getElementById(
+        "portfolioCounter"
+    ).textContent =
+        (selectedPortfolioIndex + 1) +
+        " / " +
+        allPortfolio.length;
+
+    const previousButton =
+        document.getElementById(
+            "portfolioPrev"
+        );
+
+    const nextButton =
+        document.getElementById(
+            "portfolioNext"
+        );
+
+    if(allPortfolio.length <= 1){
+
+        previousButton.style.display =
+            "none";
+
+        nextButton.style.display =
+            "none";
+
+        document.getElementById(
+            "portfolioCounter"
+        ).style.display =
+            "none";
+
+    }
+    else{
+
+        previousButton.style.display =
+            "block";
+
+        nextButton.style.display =
+            "block";
+
+        document.getElementById(
+            "portfolioCounter"
+        ).style.display =
+            "block";
+
+    }
+}
+
+function previousPortfolio(){
+
+    if(allPortfolio.length <= 1){
+        return;
+    }
+
+    selectedPortfolioIndex--;
+
+    if(
+        selectedPortfolioIndex < 0
+    ){
+
+        selectedPortfolioIndex =
+            allPortfolio.length - 1;
+
+    }
+
+    updatePortfolioModal();
+}
+
+function nextPortfolio(){
+
+    if(allPortfolio.length <= 1){
+        return;
+    }
+
+    selectedPortfolioIndex++;
+
+    if(
+        selectedPortfolioIndex >=
+        allPortfolio.length
+    ){
+
+        selectedPortfolioIndex =
+            0;
+
+    }
+
+    updatePortfolioModal();
+}
+
+function closePortfolioModal(event){
+
+    if(
+        event &&
+        event.target !==
+        document.getElementById(
+            "portfolioModal"
+        )
+    ){
+        return;
+    }
+
+    document.getElementById(
+        "portfolioModal"
+    ).classList.remove(
+        "active"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+/* ==================================================
+   KEYBOARD
 ================================================== */
 
 document.addEventListener(
     "keydown",
     function(event){
 
-        if(
-            event.key === "Escape"
-        ){
+        if(event.key === "Escape"){
 
-            const modal =
+            const productModal =
                 document.getElementById(
                     "productModal"
                 );
 
+            const portfolioModal =
+                document.getElementById(
+                    "portfolioModal"
+                );
+
             if(
-                modal &&
-                modal.classList.contains(
+                productModal &&
+                productModal.classList.contains(
                     "active"
                 )
             ){
 
                 closeProductModal();
+
+                return;
+            }
+
+            if(
+                portfolioModal &&
+                portfolioModal.classList.contains(
+                    "active"
+                )
+            ){
+
+                closePortfolioModal();
+
+                return;
+            }
+        }
+
+        const portfolioModal =
+            document.getElementById(
+                "portfolioModal"
+            );
+
+        if(
+            portfolioModal &&
+            portfolioModal.classList.contains(
+                "active"
+            )
+        ){
+
+            if(event.key === "ArrowLeft"){
+
+                previousPortfolio();
+
+            }
+
+            if(event.key === "ArrowRight"){
+
+                nextPortfolio();
 
             }
 
@@ -2514,6 +3112,67 @@ document.addEventListener(
 
     }
 );
+
+/* ==================================================
+   TOUCH SWIPE — PORTFOLIO
+================================================== */
+
+let portfolioTouchStartX = 0;
+let portfolioTouchEndX = 0;
+
+const portfolioModalImageWrap =
+    document.querySelector(
+        ".portfolio-modal-image-wrap"
+    );
+
+if(portfolioModalImageWrap){
+
+    portfolioModalImageWrap.addEventListener(
+        "touchstart",
+        function(event){
+
+            portfolioTouchStartX =
+                event.changedTouches[0].screenX;
+
+        },
+        {
+            passive:true
+        }
+    );
+
+    portfolioModalImageWrap.addEventListener(
+        "touchend",
+        function(event){
+
+            portfolioTouchEndX =
+                event.changedTouches[0].screenX;
+
+            const difference =
+                portfolioTouchEndX -
+                portfolioTouchStartX;
+
+            if(Math.abs(difference) < 50){
+                return;
+            }
+
+            if(difference > 0){
+
+                previousPortfolio();
+
+            }
+            else{
+
+                nextPortfolio();
+
+            }
+
+        },
+        {
+            passive:true
+        }
+    );
+
+}
 
 /* ==================================================
    QUOTE FORM
@@ -2579,7 +3238,9 @@ function sendQuote(event){
 
 loadProducts();
 
+loadPortfolio();
+
 </script>
 
 </body>
-</html> 
+    </html> 
