@@ -1,14 +1,126 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- =========================
+     SEO
+========================= -->
 
 <title>VERDE DECOR | Süni yaşıllıq və dekorasiya</title>
 
+<meta
+    name="description"
+    content="VERDE DECOR — Bakı üçün süni yaşıllıq, süni ağaclar, güllər, yaşıl divarlar, dibçəklər və dekorasiya həlləri. Çatdırılma və quraşdırma xidməti.">
+
+<meta
+    name="robots"
+    content="index, follow">
+
+<meta
+    name="theme-color"
+    content="#315b3d">
+
+<meta
+    name="author"
+    content="VERDE DECOR">
+
+<meta
+    name="keywords"
+    content="süni yaşıllıq, süni ağac, süni gül, yaşıl divar, dekorasiya, dibçək, Bakı, ofis dekorasiyası, restoran dekorasiyası, mağaza dekorasiyası">
+
+<!-- =========================
+     Open Graph
+========================= -->
+
+<meta
+    property="og:type"
+    content="website">
+
+<meta
+    property="og:title"
+    content="VERDE DECOR | Süni yaşıllıq və dekorasiya">
+
+<meta
+    property="og:description"
+    content="Ev, ofis, mağaza və restoranlar üçün süni yaşıllıq, yaşıl divarlar və dekorativ kompozisiyalar.">
+
+<meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1800&q=85">
+
+<meta
+    property="og:image:alt"
+    content="Süni yaşıllıq və dekorasiya">
+
+<meta
+    property="og:locale"
+    content="az_AZ">
+
+<!-- =========================
+     Twitter / X
+========================= -->
+
+<meta
+    name="twitter:card"
+    content="summary_large_image">
+
+<meta
+    name="twitter:title"
+    content="VERDE DECOR | Süni yaşıllıq və dekorasiya">
+
+<meta
+    name="twitter:description"
+    content="Süni ağaclar, güllər, yaşıl divarlar və dekorasiya həlləri.">
+
+<meta
+    name="twitter:image"
+    content="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1800&q=85">
+
+<!-- =========================
+     Favicon
+========================= -->
+
+<link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23315b3d'/%3E%3Cpath d='M45 12C27 14 16 24 16 39c0 8 5 13 13 13 16 0 24-13 20-40-1 0-3 0-4 0Z' fill='%23d9e9d3'/%3E%3Cpath d='M17 50c7-11 14-19 25-28' stroke='%23315b3d' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<!-- =========================
+     Supabase
+========================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<!-- =========================
+     Structured Data
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "VERDE DECOR",
+    "description": "Süni yaşıllıq, süni ağaclar, güllər, yaşıl divarlar və dekorasiya həlləri.",
+    "telephone": "+994501234567",
+    "image": "https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1800&q=85",
+    "areaServed": "Bakı, Azərbaycan",
+    "serviceType": [
+        "Süni yaşıllıq",
+        "Dekorasiya",
+        "Yaşıl divar",
+        "Quraşdırma"
+    ]
+}
+</script>
+
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -17,6 +129,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:80px;
 }
 
 body{
@@ -36,6 +149,11 @@ input,
 select,
 textarea{
     font:inherit;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
 }
 
 header{
@@ -60,37 +178,22 @@ header{
     white-space:nowrap;
 }
 
-.header-actions{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.whatsapp,
-.call-btn{
+.whatsapp{
     text-decoration:none;
+    background:#315b3d;
     color:white;
-    padding:10px 17px;
+    padding:10px 18px;
     border-radius:25px;
     font-weight:700;
     transition:.2s;
-    white-space:nowrap;
-}
-
-.whatsapp{
-    background:#315b3d;
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .whatsapp:hover{
     background:#264a31;
-}
-
-.call-btn{
-    background:#6b7d68;
-}
-
-.call-btn:hover{
-    background:#586956;
 }
 
 .hero{
@@ -137,7 +240,10 @@ header{
 }
 
 .btn{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:46px;
     padding:14px 23px;
     border-radius:30px;
     text-decoration:none;
@@ -209,6 +315,7 @@ section{
 
 .product-search input{
     width:100%;
+    min-height:50px;
     padding:15px 20px;
     border:1px solid #ccd6cb;
     border-radius:30px;
@@ -242,6 +349,7 @@ section{
     cursor:pointer;
     font-weight:600;
     transition:.2s;
+    min-height:42px;
 }
 
 .category.active,
@@ -321,6 +429,7 @@ section{
 .detail-btn,
 .quote-btn{
     width:100%;
+    min-height:44px;
     border:none;
     padding:12px;
     border-radius:12px;
@@ -450,6 +559,7 @@ section{
 .modal-whatsapp{
     flex:1;
     min-width:200px;
+    min-height:48px;
     border:none;
     background:#315b3d;
     color:white;
@@ -463,6 +573,7 @@ section{
 .modal-close{
     flex:1;
     min-width:150px;
+    min-height:48px;
     border:1px solid #d7ddd6;
     background:#f7f5ef;
     color:#315b3d;
@@ -477,8 +588,8 @@ section{
     position:absolute;
     top:15px;
     right:15px;
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
     border:none;
     border-radius:50%;
     background:rgba(255,255,255,.94);
@@ -609,6 +720,7 @@ section{
 .form-group select,
 .form-group textarea{
     width:100%;
+    min-height:46px;
     padding:13px 14px;
     border:1px solid #d7ddd6;
     border-radius:12px;
@@ -630,6 +742,7 @@ section{
 
 .quote-submit{
     width:100%;
+    min-height:50px;
     margin-top:20px;
     background:#315b3d;
     color:white;
@@ -653,7 +766,7 @@ section{
 }
 
 .contact-box{
-    max-width:800px;
+    max-width:700px;
     margin:auto;
 }
 
@@ -664,28 +777,7 @@ section{
 
 .contact p{
     color:#68736b;
-    margin-bottom:15px;
-}
-
-.contact-address{
-    display:inline-block;
     margin-bottom:25px;
-    padding:10px 16px;
-    background:#eef3eb;
-    color:#315b3d;
-    border-radius:20px;
-    font-weight:700;
-}
-
-.contact-buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.mobile-actions{
-    display:none;
 }
 
 footer{
@@ -693,6 +785,10 @@ footer{
     color:#dbe4dc;
     padding:30px 7%;
     text-align:center;
+}
+
+.mobile-whatsapp{
+    display:none;
 }
 
 @media(max-width:1100px){
@@ -719,22 +815,23 @@ footer{
 
 @media(max-width:650px){
 
+    body{
+        padding-bottom:82px;
+    }
+
     header{
-        padding:13px 5%;
+        padding:12px 5%;
     }
 
     .logo{
         font-size:18px;
+        letter-spacing:1.5px;
     }
 
-    .header-actions{
-        gap:6px;
-    }
-
-    .whatsapp,
-    .call-btn{
-        padding:8px 11px;
-        font-size:12px;
+    .whatsapp{
+        padding:9px 13px;
+        font-size:13px;
+        min-height:42px;
     }
 
     .hero{
@@ -748,6 +845,15 @@ footer{
 
     .hero p{
         font-size:17px;
+    }
+
+    .buttons{
+        width:100%;
+    }
+
+    .hero .buttons .btn{
+        flex:1;
+        min-width:145px;
     }
 
     .info{
@@ -805,6 +911,14 @@ footer{
         font-size:32px;
     }
 
+    .contact .buttons{
+        flex-direction:column;
+    }
+
+    .contact .btn{
+        width:100%;
+    }
+
     .product-modal{
         padding:10px;
     }
@@ -837,36 +951,41 @@ footer{
         min-width:0;
     }
 
-    .mobile-actions{
+    .mobile-whatsapp{
         display:flex;
+        align-items:center;
+        justify-content:center;
         position:fixed;
-        bottom:15px;
+        bottom:calc(12px + env(safe-area-inset-bottom));
         left:15px;
         right:15px;
         z-index:9999;
-        gap:8px;
-    }
-
-    .mobile-action{
-        flex:1;
+        background:#315b3d;
         color:white;
         text-align:center;
-        padding:13px 8px;
+        min-height:52px;
+        padding:14px;
         border-radius:30px;
         text-decoration:none;
         font-weight:800;
         box-shadow:0 8px 25px rgba(0,0,0,.25);
-        font-size:14px;
-    }
-
-    .mobile-action.whatsapp-mobile{
-        background:#315b3d;
-    }
-
-    .mobile-action.call-mobile{
-        background:#6b7d68;
     }
 }
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        transition:none !important;
+        animation:none !important;
+    }
+}
+
 </style>
 </head>
 
@@ -878,26 +997,15 @@ footer{
         VERDE DECOR
     </div>
 
-    <div class="header-actions">
+    <a
+        class="whatsapp"
+        href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <a
-            class="call-btn"
-            href="tel:+994501234567">
+        WhatsApp
 
-            📞 Zəng et
-
-        </a>
-
-        <a
-            class="whatsapp"
-            href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-            target="_blank">
-
-            WhatsApp
-
-        </a>
-
-    </div>
+    </a>
 
 </header>
 
@@ -1003,6 +1111,7 @@ footer{
             type="search"
             id="productSearch"
             placeholder="🔎 Məhsul axtar..."
+            aria-label="Məhsul axtar"
             oninput="searchProducts()">
 
     </div>
@@ -1066,7 +1175,10 @@ footer{
 <div
     class="product-modal"
     id="productModal"
-    onclick="closeProductModal(event)">
+    onclick="closeProductModal(event)"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Məhsul detalları">
 
     <div
         class="product-modal-box"
@@ -1075,6 +1187,7 @@ footer{
         <button
             class="modal-x"
             type="button"
+            aria-label="Bağla"
             onclick="closeProductModal()">
 
             ×
@@ -1156,8 +1269,9 @@ footer{
 
             <img
                 src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80"
-                alt="Ofis dekorasiyası"
-                loading="lazy">
+                alt="Ofis dekorasiyası və süni yaşıllıq"
+                loading="lazy"
+                decoding="async">
 
             <div class="portfolio-label">
                 🏢 Ofis
@@ -1170,7 +1284,8 @@ footer{
             <img
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80"
                 alt="Mağaza dekorasiyası"
-                loading="lazy">
+                loading="lazy"
+                decoding="async">
 
             <div class="portfolio-label">
                 🛍️ Mağaza
@@ -1183,7 +1298,8 @@ footer{
             <img
                 src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
                 alt="Restoran dekorasiyası"
-                loading="lazy">
+                loading="lazy"
+                decoding="async">
 
             <div class="portfolio-label">
                 🍽️ Restoran
@@ -1196,7 +1312,8 @@ footer{
             <img
                 src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80"
                 alt="Ev dekorasiyası"
-                loading="lazy">
+                loading="lazy"
+                decoding="async">
 
             <div class="portfolio-label">
                 🏠 Ev
@@ -1208,8 +1325,9 @@ footer{
 
             <img
                 src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
-                alt="Biznes məkanı"
-                loading="lazy">
+                alt="Biznes məkanı dekorasiyası"
+                loading="lazy"
+                decoding="async">
 
             <div class="portfolio-label">
                 💼 Biznes məkanı
@@ -1221,8 +1339,9 @@ footer{
 
             <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80"
-                alt="Yaşıl interyer"
-                loading="lazy">
+                alt="Yaşıl interyer dekorasiyası"
+                loading="lazy"
+                decoding="async">
 
             <div class="portfolio-label">
                 🌿 Yaşıl interyer
@@ -1363,7 +1482,8 @@ footer{
                     <input
                         id="name"
                         type="text"
-                        placeholder="Məsələn: Elvin">
+                        placeholder="Məsələn: Elvin"
+                        autocomplete="name">
 
                 </div>
 
@@ -1485,19 +1605,18 @@ footer{
         </h2>
 
         <p>
-            Layihəniz barədə danışmaq və ünvanımıza baxmaq üçün bizimlə əlaqə saxlayın.
+            Layihəniz barədə danışmaq üçün WhatsApp vasitəsilə əlaqə saxlayın.
         </p>
 
-        <div class="contact-address">
-            📍 Əhməd Rəcəbli küçəsi, Bakı
-        </div>
-
-        <div class="contact-buttons">
+        <div
+            class="buttons"
+            style="justify-content:center;">
 
             <a
                 class="btn btn-primary"
                 href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-                target="_blank">
+                target="_blank"
+                rel="noopener noreferrer">
 
                 WhatsApp-a yaz
 
@@ -1505,16 +1624,9 @@ footer{
 
             <a
                 class="btn btn-secondary"
-                href="tel:+994501234567">
-
-                📞 Zəng et
-
-            </a>
-
-            <a
-                class="btn btn-secondary"
-                href="https://maps.google.com/?q=Ahmad+Rajabli+Street,Baku,Azerbaijan"
-                target="_blank">
+                href="https://maps.google.com/?q=Baku,Azerbaijan"
+                target="_blank"
+                rel="noopener noreferrer">
 
                 📍 Xəritədə bax
 
@@ -1527,31 +1639,32 @@ footer{
 </section>
 
 <footer>
-    © 2026 VERDE DECOR — Demo website
+    © 2026 <span id="footerBrand">VERDE DECOR</span> — Demo website
 </footer>
 
-<div class="mobile-actions">
+<a
+    class="mobile-whatsapp"
+    href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
+    target="_blank"
+    rel="noopener noreferrer">
 
-    <a
-        class="mobile-action call-mobile"
-        href="tel:+994501234567">
+    💬 WhatsApp-a yaz
 
-        📞 Zəng et
-
-    </a>
-
-    <a
-        class="mobile-action whatsapp-mobile"
-        href="https://wa.me/994501234567?text=Salam%2C%20VERDE%20DECOR%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
-        target="_blank">
-
-        💬 WhatsApp
-
-    </a>
-
-</div>
+</a>
 
 <script>
+
+/* ==================================================
+   BRAND
+   Gələcəkdə şirkətin adını dəyişmək lazım olsa,
+   ilk növbədə yalnız bu sətri dəyiş.
+================================================== */
+
+const BRAND_NAME =
+    "VERDE DECOR";
+
+const BUSINESS_PHONE =
+    "994501234567";
 
 const SUPABASE_URL =
     "https://yxhiqqcninhgwcwgpaen.supabase.co";
@@ -1567,6 +1680,179 @@ const client =
 
 let allProducts = [];
 let selectedProduct = null;
+
+/* ==================================================
+   BRAND / SEO avtomatik yenilənməsi
+================================================== */
+
+function setupBrand(){
+
+    const title =
+        BRAND_NAME +
+        " | Süni yaşıllıq və dekorasiya";
+
+    const description =
+        BRAND_NAME +
+        " — Bakı üçün süni yaşıllıq, süni ağaclar, güllər, yaşıl divarlar, dibçəklər və dekorasiya həlləri. Çatdırılma və quraşdırma xidməti.";
+
+    document.title =
+        title;
+
+    const logo =
+        document.querySelector(".logo");
+
+    if(logo){
+        logo.textContent =
+            BRAND_NAME;
+    }
+
+    const footerBrand =
+        document.getElementById(
+            "footerBrand"
+        );
+
+    if(footerBrand){
+        footerBrand.textContent =
+            BRAND_NAME;
+    }
+
+    const descriptionMeta =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+    if(descriptionMeta){
+        descriptionMeta.setAttribute(
+            "content",
+            description
+        );
+    }
+
+    const authorMeta =
+        document.querySelector(
+            'meta[name="author"]'
+        );
+
+    if(authorMeta){
+        authorMeta.setAttribute(
+            "content",
+            BRAND_NAME
+        );
+    }
+
+    const ogTitle =
+        document.querySelector(
+            'meta[property="og:title"]'
+        );
+
+    if(ogTitle){
+        ogTitle.setAttribute(
+            "content",
+            title
+        );
+    }
+
+    const ogDescription =
+        document.querySelector(
+            'meta[property="og:description"]'
+        );
+
+    if(ogDescription){
+        ogDescription.setAttribute(
+            "content",
+            description
+        );
+    }
+
+    const twitterTitle =
+        document.querySelector(
+            'meta[name="twitter:title"]'
+        );
+
+    if(twitterTitle){
+        twitterTitle.setAttribute(
+            "content",
+            title
+        );
+    }
+
+    const twitterDescription =
+        document.querySelector(
+            'meta[name="twitter:description"]'
+        );
+
+    if(twitterDescription){
+        twitterDescription.setAttribute(
+            "content",
+            description
+        );
+    }
+
+    const schema =
+        document.querySelector(
+            'script[type="application/ld+json"]'
+        );
+
+    if(schema){
+
+        try{
+
+            const data =
+                JSON.parse(
+                    schema.textContent
+                );
+
+            data.name =
+                BRAND_NAME;
+
+            data.description =
+                description;
+
+            schema.textContent =
+                JSON.stringify(
+                    data
+                );
+
+        }
+        catch(error){
+
+            console.warn(
+                "Structured data update failed:",
+                error
+            );
+
+        }
+
+    }
+
+}
+
+setupBrand();
+
+/* ==================================================
+   WhatsApp
+================================================== */
+
+function openWhatsApp(message){
+
+    const url =
+        "https://wa.me/" +
+        BUSINESS_PHONE +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+    window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+    );
+}
+
+/* ==================================================
+   CATEGORY
+================================================== */
 
 function normalizeCategory(category){
 
@@ -1640,6 +1926,10 @@ function getCategoryName(category){
     return "🌿 Dekor";
 }
 
+/* ==================================================
+   SECURITY / FORMATTING
+================================================== */
+
 function escapeHtml(value){
 
     return String(value || "")
@@ -1667,17 +1957,25 @@ function formatPrice(price){
         return escapeHtml(price);
     }
 
-    return number.toLocaleString("az-AZ") + " AZN";
+    return number.toLocaleString(
+        "az-AZ"
+    ) + " AZN";
 }
 
 function getImageUrl(url){
 
     if(!url){
+
         return "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80";
+
     }
 
     return String(url);
 }
+
+/* ==================================================
+   PRODUCTS
+================================================== */
 
 async function loadProducts(){
 
@@ -1783,7 +2081,7 @@ function renderProducts(products){
 
                     <img
                         src="${escapeHtml(image)}"
-                        alt="${name}"
+                        alt="${name} — ${BRAND_NAME}"
                         loading="lazy"
                         decoding="async"
                         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80';">
@@ -1840,6 +2138,10 @@ function renderProducts(products){
         })
         .join("");
 }
+
+/* ==================================================
+   FILTER
+================================================== */
 
 function filterProducts(
     category,
@@ -1973,8 +2275,8 @@ function searchProducts(){
     }
 
     if(
-        visibleCount === 0 &&
-        allProducts.length > 0
+        search &&
+        visibleCount === 0
     ){
 
         const message =
@@ -1988,27 +2290,21 @@ function searchProducts(){
         message.className =
             "empty-products";
 
-        if(search){
-
-            message.innerHTML =
-                "🔎 <strong>\"" +
-                escapeHtml(search) +
-                "\"</strong> adlı məhsul tapılmadı.<br>" +
-                "<small>Başqa məhsul adı ilə axtarın.</small>";
-
-        }
-        else{
-
-            message.innerHTML =
-                "Bu kateqoriyada hələ məhsul yoxdur.";
-
-        }
+        message.innerHTML =
+            "🔎 <strong>\"" +
+            escapeHtml(search) +
+            "\"</strong> adlı məhsul tapılmadı.<br>" +
+            "<small>Başqa məhsul adı ilə axtarın.</small>";
 
         container.appendChild(
             message
         );
     }
 }
+
+/* ==================================================
+   PRODUCT MODAL
+================================================== */
 
 function openProductDetails(productId){
 
@@ -2061,7 +2357,9 @@ function openProductDetails(productId){
         image;
 
     imageElement.alt =
-        name;
+        name +
+        " — " +
+        BRAND_NAME;
 
     imageElement.onerror =
         function(){
@@ -2140,7 +2438,9 @@ function askProductFromModal(){
         "Məhsul";
 
     let message =
-        "Salam, VERDE DECOR! 🌿\n\n" +
+        "Salam, " +
+        BRAND_NAME +
+        "! 🌿\n\n" +
         "Bu məhsulla maraqlanıram:\n" +
         "🌿 Məhsul: " +
         name;
@@ -2162,37 +2462,29 @@ function askProductFromModal(){
     message +=
         "\n\nQiymət və əlavə məlumat göndərə bilərsiniz?";
 
-    const url =
-        "https://wa.me/994501234567?text=" +
-        encodeURIComponent(
-            message
-        );
-
-    window.open(
-        url,
-        "_blank"
+    openWhatsApp(
+        message
     );
 }
 
 function askProduct(product){
 
     const message =
-        "Salam, VERDE DECOR. " +
+        "Salam, " +
+        BRAND_NAME +
+        ". " +
         product +
         " məhsulu ilə maraqlanıram. " +
         "Qiymət və məlumat göndərə bilərsiniz?";
 
-    const url =
-        "https://wa.me/994501234567?text=" +
-        encodeURIComponent(
-            message
-        );
-
-    window.open(
-        url,
-        "_blank"
+    openWhatsApp(
+        message
     );
 }
+
+/* ==================================================
+   ESCAPE
+================================================== */
 
 document.addEventListener(
     "keydown",
@@ -2222,6 +2514,10 @@ document.addEventListener(
 
     }
 );
+
+/* ==================================================
+   QUOTE FORM
+================================================== */
 
 function sendQuote(event){
 
@@ -2256,7 +2552,9 @@ function sendQuote(event){
             .trim();
 
     const message =
-        "Salam, VERDE DECOR! 🌿\n\n" +
+        "Salam, " +
+        BRAND_NAME +
+        "! 🌿\n\n" +
         "Qiymət təklifi almaq istəyirəm.\n\n" +
         "👤 Ad: " +
         (name || "Qeyd edilməyib") +
@@ -2270,17 +2568,14 @@ function sendQuote(event){
         (notes || "Yoxdur") +
         "\n\n📸 Məkanın şəklini də göndərə bilərəm.";
 
-    const url =
-        "https://wa.me/994501234567?text=" +
-        encodeURIComponent(
-            message
-        );
-
-    window.open(
-        url,
-        "_blank"
+    openWhatsApp(
+        message
     );
 }
+
+/* ==================================================
+   START
+================================================== */
 
 loadProducts();
 
